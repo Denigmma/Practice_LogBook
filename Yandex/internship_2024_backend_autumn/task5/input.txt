@@ -1,0 +1,8 @@
+3
+ba
+ab
+abc
+3
+cd
+ba
+ab
