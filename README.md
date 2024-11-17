@@ -19,10 +19,13 @@
 2. Создайте виртуальное окружение
 
 `python -m venv venv`
+
 3. Активируйте витруальное окружение:
 
 `.\venv\Scripts\activate`
+
 4. Установите все зависимости из файла requirements.txt:
 
 `pip install -r requirements.txt`
+
 5. Проект готов к запуску!
