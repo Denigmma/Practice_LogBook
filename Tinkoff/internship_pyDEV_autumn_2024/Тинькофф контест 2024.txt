@@ -1,0 +1,247 @@
+TASK 1:
+
+input_str = input()
+intervals = input_str.split(',')
+
+array=[]
+
+def row(start, end):
+    for num in range(int(start), int(end) + 1):
+        array.append(num)
+
+for i in intervals:
+    if '-' in i:
+        start, end = map(int, i.split('-'))
+        row(start, end)
+    else:
+        num = int(i)
+        array.append(num)
+print(' '.join(map(str, array)))
+
+
+
+TASK 2:
+
+n = int(input().strip())
+data = list(map(int, input().strip().split()))
+
+flag = True
+difference = []
+previous_value = 0
+
+for value in data:
+    if value == -1:
+        previous_value += 1
+        difference.append(previous_value - (previous_value - 1))
+    else:
+        if value < previous_value:
+            flag = False
+            break
+        difference.append(value - previous_value)
+        previous_value = value
+
+if flag:
+    print("YES")
+    print(" ".join(map(str, difference)))
+else:
+    print("NO")
+
+
+
+TASK 3:
+
+from collections import Counter
+
+def hfp(series, need_chars, maxlen):
+    need_count = Counter(need_chars)
+    need_unique_chars = len(need_count)
+    currentcount = Counter()
+    current_unique_chars = 0
+    l=0
+    n=len(series)
+    rightpass = ""
+    for r in range(n):
+        char = series[r]
+        currentcount[char] += 1
+        if char in need_count and currentcount[char] == need_count[char]:
+            current_unique_chars += 1
+        while r - l + 1 > maxlen:
+            left_char = series[l]
+            if left_char in need_count and currentcount[left_char] == need_count[left_char]:
+                current_unique_chars -= 1
+            currentcount[left_char] -= 1
+            l += 1
+        if current_unique_chars == need_unique_chars:
+            currentpass = series[l:r + 1]
+            if len(currentpass) > len(rightpass) or (
+                    len(currentpass) == len(rightpass) and l > series.find(rightpass)):
+                rightpass = currentpass
+    return rightpass if rightpass else "-1"
+
+series = input().strip()
+need_chars = input().strip()
+maxlen = int(input().strip())
+
+res = hfp(series, need_chars, maxlen)
+print(res)
+
+
+
+TASK 4:
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+bool num_is_simple(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    if (n <= 3) {
+        return true;
+    }
+    if (n % 2 == 0 || n % 3 == 0) {
+        return false;
+    }
+    int i = 5;
+    while (i * i <= n) {
+        if (n % i == 0 || n % (i + 2) == 0) {
+            return false;
+        }
+        i += 6;
+    }
+    return true;
+}
+
+int kolvo_div(int n) {
+    int count = 0;
+    int nsqrt = static_cast<int>(sqrt(n));
+    for (int i = 1; i <= nsqrt; ++i) {
+        if (n % i == 0) {
+            count++;
+            if (i != n / i) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+int count_result(int l, int r) {
+    int count = 0;
+    int limit = static_cast<int>(sqrt(r));
+    for (int p = 2; p <= limit; ++p) {
+        if (num_is_simple(p)) {
+            int p2 = p * p;
+            if (p2 > r) {
+                break;
+            }
+            long long x = p2;
+            while (x <= r) {
+                if (x >= l && num_is_simple(kolvo_div(x))) {
+                    count++;
+                }
+                if (x > r / p2) {
+                    break;
+                }
+                x *= p2;
+            }
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    int l, r;
+    cin >> l >> r;
+    cout << count_result(l, r) << endl;
+    return 0;
+}
+
+
+TASK 5:
+
+from datetime import datetime, timedelta
+from collections import defaultdict
+
+def result_hakaton():
+    start_time=input().strip()
+    n=int(input().strip())
+    teams=defaultdict(lambda: {"servers": defaultdict(int), "success": 0, "punishment": 0})
+    for i in range(n):
+        record=input().strip().split()
+        team_name=record[0].strip('"')
+        event_time=record[1]
+        server=record[2]
+        result=record[3]
+        if result == "PONG":
+            continue
+        minutes_since_start = time_diff(start_time, event_time)
+        if result in {"FORBIDDEN", "DENIED"}:
+            teams[team_name]["servers"][server]+=1
+        elif result=="ACCESSED":
+            if teams[team_name]["servers"][server]>=0:
+                punishment = teams[team_name]["servers"][server]*20
+                teams[team_name]["punishment"]+=punishment+minutes_since_start
+                teams[team_name]["success"]+=1
+            teams[team_name]["servers"][server]=-1
+    results=[]
+    for team_name, data in teams.items():
+        results.append((team_name, data["success"], data["punishment"]))
+    results.sort(key=lambda x:(-x[1],x[2],x[0]))
+    rank=1
+    for idx,(team_name,success, punishment) in enumerate(results):
+        if idx>0 and (results[idx-1][1],results[idx-1][2])==(success,punishment):
+            print(f'{rank} "{team_name}" {success} {punishment}')
+        else:
+            rank=idx+1
+            print(f'{rank} "{team_name}" {success} {punishment}')
+
+def time_diff(start_time, event_time):
+    fmt='%H:%M:%S'
+    start=datetime.strptime(start_time, fmt)
+    event=datetime.strptime(event_time, fmt)
+    if event<start:
+        event+=timedelta(days=1)
+    tdelta = event-start
+    return tdelta.seconds//60
+
+result_hakaton()
+
+
+
+TASK 6:
+
+from collections import deque, defaultdict
+
+n=int(input())
+list_proc=[]
+
+for i in range(n):
+    m=list(map(int, input().split()))
+    list_proc.append(m)
+
+list_depend=defaultdict(list)
+time=[0]*n
+count_depend=[0]*n
+finish_time=[0]*n
+que=deque()
+for i in range(n):
+    data=list_proc[i]
+    time[i]=data[0]
+    for dep in data[1:]:
+        list_depend[dep-1].append(i)
+        count_depend[i]+=1
+for i in range(n):
+    if count_depend[i]==0:
+        que.append(i)
+        finish_time[i]=time[i]
+while que:
+    process=que.popleft()
+    for dep in list_depend[process]:
+        finish_time[dep]=max(finish_time[dep],finish_time[process]+time[dep])
+        count_depend[dep]-=1
+        if count_depend[dep]==0:
+            que.append(dep)
+
+print(max(finish_time))
