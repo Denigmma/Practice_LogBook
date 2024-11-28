@@ -1,0 +1,3152 @@
+[
+  {
+    "title": "Tricking the Answer Machine: Word Games for Fun and Misery",
+    "citations": 18,
+    "group": 0,
+    "paper_id": 0
+  },
+  {
+    "title": "Explainers Guide to Guessing What you Really Mean",
+    "citations": 17,
+    "group": 1,
+    "paper_id": 1
+  },
+  {
+    "title": "Autoregressive Models Gone Wild",
+    "citations": 15,
+    "group": 2,
+    "paper_id": 2
+  },
+  {
+    "title": "The Log Whisperer: Language Models Unleashed",
+    "citations": 19,
+    "group": 3,
+    "paper_id": 3
+  },
+  {
+    "title": "Symbolic Circus: A Wild Ride Through Relational Reasoning",
+    "citations": 12,
+    "group": 4,
+    "paper_id": 4
+  },
+  {
+    "title": "The Great Pixel Conspiracy Unveiled",
+    "citations": 5,
+    "group": 5,
+    "paper_id": 5
+  },
+  {
+    "title": "Reinforcement Learning for Radioactive Revelry",
+    "citations": 8,
+    "group": 6,
+    "paper_id": 6
+  },
+  {
+    "title": "Neurotic Ranking Reversal",
+    "citations": 7,
+    "group": 7,
+    "paper_id": 7
+  },
+  {
+    "title": "The Similarity Chronicles: Decodable Edition",
+    "citations": 10,
+    "group": 8,
+    "paper_id": 8
+  },
+  {
+    "title": "Build a Crystal and They Will Come",
+    "citations": 12,
+    "group": 9,
+    "paper_id": 9
+  },
+  {
+    "title": "Branching Out LLMs Help You Pick the Best Choice",
+    "citations": 9,
+    "group": 10,
+    "paper_id": 10
+  },
+  {
+    "title": "VRoadmap: Navigating the Future of Human Trajectories",
+    "citations": 3,
+    "group": 11,
+    "paper_id": 11
+  },
+  {
+    "title": "The Great White Matter Embedding Bake-off",
+    "citations": 12,
+    "group": 12,
+    "paper_id": 12
+  },
+  {
+    "title": "Optimizing Retrieval: A Comedy of Academic Errors",
+    "citations": 2,
+    "group": 13,
+    "paper_id": 13
+  },
+  {
+    "title": "AstroM$3 The Multimodal Galaxy Karaoke Machine",
+    "citations": 17,
+    "group": 14,
+    "paper_id": 14
+  },
+  {
+    "title": "Faulty Predictions: A Nuclear Comedy of Errors",
+    "citations": 6,
+    "group": 15,
+    "paper_id": 15
+  },
+  {
+    "title": "Diffusion Models on the Rocks",
+    "citations": 3,
+    "group": 16,
+    "paper_id": 16
+  },
+  {
+    "title": "Scavenger Hunt in the Algorithmic Attic",
+    "citations": 13,
+    "group": 17,
+    "paper_id": 17
+  },
+  {
+    "title": "LongTerm Symphonic Shenanigans",
+    "citations": 8,
+    "group": 18,
+    "paper_id": 18
+  },
+  {
+    "title": "Variations on a Theme of Interactions",
+    "citations": 13,
+    "group": 19,
+    "paper_id": 19
+  },
+  {
+    "title": "One Shuffle at a Time Language Agents are Sidestepping Strategists",
+    "citations": 4,
+    "group": 20,
+    "paper_id": 20
+  },
+  {
+    "title": "The Great Interaction Variation Showdown",
+    "citations": 16,
+    "group": 21,
+    "paper_id": 21
+  },
+  {
+    "title": "AstroM3 The Self Helping Star Spotter",
+    "citations": 6,
+    "group": 22,
+    "paper_id": 22
+  },
+  {
+    "title": "CyberSecEval: The Comedy Edition",
+    "citations": 4,
+    "group": 23,
+    "paper_id": 23
+  },
+  {
+    "title": "Long Stories Short: The Quest for Clinical Clarity",
+    "citations": 2,
+    "group": 24,
+    "paper_id": 24
+  },
+  {
+    "title": "Programming Fun in Model Agnosticism",
+    "citations": 1,
+    "group": 25,
+    "paper_id": 25
+  },
+  {
+    "title": "Flame Game: Who Will Detect Wildfires Best",
+    "citations": 12,
+    "group": 26,
+    "paper_id": 26
+  },
+  {
+    "title": "SCORE: Scary Codes Really Exist",
+    "citations": 11,
+    "group": 27,
+    "paper_id": 27
+  },
+  {
+    "title": "Multi-label Moods: How Chinese Users Feel About Everything",
+    "citations": 6,
+    "group": 28,
+    "paper_id": 28
+  },
+  {
+    "title": "Textual Analysis: The Quest for the Perfect Patent Pun",
+    "citations": 14,
+    "group": 29,
+    "paper_id": 29
+  },
+  {
+    "title": "Splatting Around: Gaussian Shenanigans in Four Dimensions",
+    "citations": 14,
+    "group": 30,
+    "paper_id": 30
+  },
+  {
+    "title": "Configuring Chaos for Learning Fun",
+    "citations": 15,
+    "group": 31,
+    "paper_id": 31
+  },
+  {
+    "title": "R3HF: Reinventing Rewards for Hilarious Feedback Fun",
+    "citations": 5,
+    "group": 32,
+    "paper_id": 32
+  },
+  {
+    "title": "Critique Me If You Can: The LLM Show",
+    "citations": 7,
+    "group": 33,
+    "paper_id": 33
+  },
+  {
+    "title": "LLMs and the Quest for an Unbiased Sandwich: A Scientific Journey",
+    "citations": 12,
+    "group": 34,
+    "paper_id": 34
+  },
+  {
+    "title": "AI Traffic Cop: Deep Learning in a Jam",
+    "citations": 19,
+    "group": 35,
+    "paper_id": 35
+  },
+  {
+    "title": "Chinese Emotion Explosion: Social Media Shenanigans",
+    "citations": 13,
+    "group": 36,
+    "paper_id": 36
+  },
+  {
+    "title": "R3HF: Reward Repackaging for Reinforcement Learning Shenanigans",
+    "citations": 84,
+    "group": 37,
+    "paper_id": 37
+  },
+  {
+    "title": "Explaining the Unexplainable with Constraints",
+    "citations": 15,
+    "group": 38,
+    "paper_id": 38
+  },
+  {
+    "title": "News Recommendation: A Comedy of Sampling Errors",
+    "citations": 9,
+    "group": 39,
+    "paper_id": 39
+  },
+  {
+    "title": "Flowing with the Graphs: A Neural Journey",
+    "citations": 4,
+    "group": 40,
+    "paper_id": 40
+  },
+  {
+    "title": "Diffusion Models: The Great Perception Expedition",
+    "citations": 12,
+    "group": 41,
+    "paper_id": 41
+  },
+  {
+    "title": "SCORE: Scripting Catastrophes Obliterated Rapidly and Efficiently",
+    "citations": 16,
+    "group": 42,
+    "paper_id": 42
+  },
+  {
+    "title": "Vision Quest for the Autoregressive Soul",
+    "citations": 11,
+    "group": 43,
+    "paper_id": 43
+  },
+  {
+    "title": "Language Models on the Job Site: From Blueprints to Buffoonery",
+    "citations": 1,
+    "group": 44,
+    "paper_id": 44
+  },
+  {
+    "title": "Patent Pending: The Great Gender Word Showdown",
+    "citations": 9,
+    "group": 45,
+    "paper_id": 45
+  },
+  {
+    "title": "Scientifically Speaking: A Journey through the Analogical Dimension",
+    "citations": 27,
+    "group": 46,
+    "paper_id": 46
+  },
+  {
+    "title": "Keep Your Data Close and Your Pirates Closer",
+    "citations": 6,
+    "group": 47,
+    "paper_id": 47
+  },
+  {
+    "title": "Hash Your Protein and Call it a Day",
+    "citations": 6,
+    "group": 48,
+    "paper_id": 48
+  },
+  {
+    "title": "Large Language Models and the Quest for World Domination",
+    "citations": 1,
+    "group": 49,
+    "paper_id": 49
+  },
+  {
+    "title": "Pour Decisions in Physics Informed Distillation",
+    "citations": 19,
+    "group": 50,
+    "paper_id": 50
+  },
+  {
+    "title": "LSTM Laughs: Predicting Plant Potholes in Power Production",
+    "citations": 16,
+    "group": 51,
+    "paper_id": 51
+  },
+  {
+    "title": "DPU Definitely Puzzling Unicorns",
+    "citations": 45,
+    "group": 52,
+    "paper_id": 52
+  },
+  {
+    "title": "Risky Business: The Paper",
+    "citations": 15,
+    "group": 53,
+    "paper_id": 53
+  },
+  {
+    "title": "When Graphs Get Funky for MCI",
+    "citations": 19,
+    "group": 54,
+    "paper_id": 54
+  },
+  {
+    "title": "SAIF Me Up Scotty",
+    "citations": 16,
+    "group": 55,
+    "paper_id": 55
+  },
+  {
+    "title": "Language Models Fumble Their Medical Exam",
+    "citations": 15,
+    "group": 56,
+    "paper_id": 56
+  },
+  {
+    "title": "Autoencoder Adventures in Steering Vector Land",
+    "citations": 15,
+    "group": 57,
+    "paper_id": 57
+  },
+  {
+    "title": "Deepfake Detectives: The Adaptive Avengers",
+    "citations": 15,
+    "group": 58,
+    "paper_id": 58
+  },
+  {
+    "title": "Supercooling the Competition A Hilarious Take on Digital Systems",
+    "citations": 6,
+    "group": 59,
+    "paper_id": 59
+  },
+  {
+    "title": "Rerank and Chill",
+    "citations": 13,
+    "group": 60,
+    "paper_id": 60
+  },
+  {
+    "title": "Length Matters: The Great Language Model Debate",
+    "citations": 16,
+    "group": 61,
+    "paper_id": 61
+  },
+  {
+    "title": "One Pebble at a Time Language Agents are Plodding Planners",
+    "citations": 18,
+    "group": 62,
+    "paper_id": 62
+  },
+  {
+    "title": "The Fine-Tuning Fiasco of Parameter Experts",
+    "citations": 8,
+    "group": 63,
+    "paper_id": 63
+  },
+  {
+    "title": "Giggles and Googles in Knowledge Bases",
+    "citations": 19,
+    "group": 64,
+    "paper_id": 64
+  },
+  {
+    "title": "Data Protection: The Sequel No One Asked For",
+    "citations": 12,
+    "group": 65,
+    "paper_id": 65
+  },
+  {
+    "title": "Apathy Meets Hierarchical Attention Networks: The Quest for Objective Decision Making",
+    "citations": 3,
+    "group": 66,
+    "paper_id": 66
+  },
+  {
+    "title": "Hashing Around the Protein Block",
+    "citations": 1,
+    "group": 67,
+    "paper_id": 67
+  },
+  {
+    "title": "Feeling Curious: The Chinese Social Media Emotion Experiment",
+    "citations": 18,
+    "group": 68,
+    "paper_id": 68
+  },
+  {
+    "title": "MVKTranquilo: Where Multiomics Finds Peace",
+    "citations": 16,
+    "group": 69,
+    "paper_id": 69
+  },
+  {
+    "title": "Push It Real Good Learning",
+    "citations": 17,
+    "group": 70,
+    "paper_id": 70
+  },
+  {
+    "title": "Hocus Pocus User Focus with Sharingan",
+    "citations": 3,
+    "group": 71,
+    "paper_id": 71
+  },
+  {
+    "title": "Cross Lingual Chaos: The Language Transfer Dance",
+    "citations": 18,
+    "group": 72,
+    "paper_id": 72
+  },
+  {
+    "title": "Time Travel and Flow: A Graph Adventure",
+    "citations": 16,
+    "group": 73,
+    "paper_id": 73
+  },
+  {
+    "title": "Transformers in Scrubs Too Little Change in Healthcare",
+    "citations": 18,
+    "group": 74,
+    "paper_id": 74
+  },
+  {
+    "title": "ScoopItUp: The Comedy of Granular Touch",
+    "citations": 5,
+    "group": 75,
+    "paper_id": 75
+  },
+  {
+    "title": "The Great Circular Debate of Voting Models",
+    "citations": 19,
+    "group": 76,
+    "paper_id": 76
+  },
+  {
+    "title": "R3HF: Reward Repackaging for Reinforcement Learning Shenanigans",
+    "citations": 8,
+    "group": 77,
+    "paper_id": 77
+  },
+  {
+    "title": "Differential Drama: The PSO Chronicles",
+    "citations": 11,
+    "group": 78,
+    "paper_id": 78
+  },
+  {
+    "title": "Scientifically Speaking: A Journey through the Analogical Dimension",
+    "citations": 99,
+    "group": 79,
+    "paper_id": 79
+  },
+  {
+    "title": "Big Brains and Bigger Headlines",
+    "citations": 19,
+    "group": 80,
+    "paper_id": 80
+  },
+  {
+    "title": "Deep Learning Drones Do the Dance",
+    "citations": 1,
+    "group": 81,
+    "paper_id": 81
+  },
+  {
+    "title": "Segmentation Sensation: The Musical Chronicles",
+    "citations": 13,
+    "group": 82,
+    "paper_id": 82
+  },
+  {
+    "title": "Hash It Like Its Hot Protein Party",
+    "citations": 17,
+    "group": 83,
+    "paper_id": 83
+  },
+  {
+    "title": "The Great Dialogue Mashup Experiment",
+    "citations": 9,
+    "group": 84,
+    "paper_id": 84
+  },
+  {
+    "title": "Trust Me I Am An AI",
+    "citations": 4,
+    "group": 85,
+    "paper_id": 85
+  },
+  {
+    "title": "Data Augmentation: When AI Meets WiFi",
+    "citations": 18,
+    "group": 86,
+    "paper_id": 86
+  },
+  {
+    "title": "Aleatoric Antics: Deep Learning's Wacky Uncertainty Ride",
+    "citations": 1,
+    "group": 87,
+    "paper_id": 87
+  },
+  {
+    "title": "Objectively Funny: Vector Processing for Laughs",
+    "citations": 14,
+    "group": 88,
+    "paper_id": 88
+  },
+  {
+    "title": "When AI Meets Medicine A Failed Adaptation Story",
+    "citations": 8,
+    "group": 89,
+    "paper_id": 89
+  },
+  {
+    "title": "Leaf it to Us Making Sense with Decision Trees",
+    "citations": 1,
+    "group": 90,
+    "paper_id": 90
+  },
+  {
+    "title": "Rendering the Truth: A Fake Odyssey",
+    "citations": 6,
+    "group": 91,
+    "paper_id": 91
+  },
+  {
+    "title": "Detective Pixels and the Case of Faux Images",
+    "citations": 8,
+    "group": 92,
+    "paper_id": 92
+  },
+  {
+    "title": "Signature Sleuths For Motor Mysteries",
+    "citations": 18,
+    "group": 93,
+    "paper_id": 93
+  },
+  {
+    "title": "BAMAX: Backward Exploring Agents with Lots of Learning",
+    "citations": 13,
+    "group": 94,
+    "paper_id": 94
+  },
+  {
+    "title": "PRIMO: Pancake Recipes Inducing Massive Overeating",
+    "citations": 13,
+    "group": 95,
+    "paper_id": 95
+  },
+  {
+    "title": "RESOlutely Ridiculous Reasoning with Symbols",
+    "citations": 15,
+    "group": 96,
+    "paper_id": 96
+  },
+  {
+    "title": "The Case of the Augmented Data: A Wireless Whodunit",
+    "citations": 4,
+    "group": 97,
+    "paper_id": 97
+  },
+  {
+    "title": "Modular Mayhem: White Matter Tracts Unplugged",
+    "citations": 10,
+    "group": 98,
+    "paper_id": 98
+  },
+  {
+    "title": "When Tongues Talk Back to Thoughts",
+    "citations": 2,
+    "group": 99,
+    "paper_id": 99
+  },
+  {
+    "title": "Ontologies and Giggles: Building Trustworthy AI",
+    "citations": 13,
+    "group": 100,
+    "paper_id": 100
+  },
+  {
+    "title": "MultiView Guardians of the Omics: A Transfer Odyssey",
+    "citations": 16,
+    "group": 101,
+    "paper_id": 101
+  },
+  {
+    "title": "Laughing with Electrons A Comedic Performance Review",
+    "citations": 9,
+    "group": 102,
+    "paper_id": 102
+  },
+  {
+    "title": "Building Blocks of Responsible AI: A Safe Bet with Language Models",
+    "citations": 10,
+    "group": 103,
+    "paper_id": 103
+  },
+  {
+    "title": "Visual Dialogues and the Quest for the Perfect Query",
+    "citations": 19,
+    "group": 104,
+    "paper_id": 104
+  },
+  {
+    "title": "Pushing Boundaries in Robot Training",
+    "citations": 18,
+    "group": 105,
+    "paper_id": 105
+  },
+  {
+    "title": "Explainers Knows Best The Unwritten Rule",
+    "citations": 15,
+    "group": 106,
+    "paper_id": 106
+  },
+  {
+    "title": "Transformer Shenanigans: A Tale of Tongues and Thoughts",
+    "citations": 15,
+    "group": 107,
+    "paper_id": 107
+  },
+  {
+    "title": "The Big Multiomic Transfer Adventure: Knowledge on Tour",
+    "citations": 1,
+    "group": 108,
+    "paper_id": 108
+  },
+  {
+    "title": "When Science Meets Model Mayhem",
+    "citations": 1,
+    "group": 109,
+    "paper_id": 109
+  },
+  {
+    "title": "LLMs Gone Wild: Exploring Conference Chaos",
+    "citations": 1,
+    "group": 110,
+    "paper_id": 110
+  },
+  {
+    "title": "Deeply Uncertain: A Comedy of Machine Learning Errors",
+    "citations": 16,
+    "group": 111,
+    "paper_id": 111
+  },
+  {
+    "title": "Uncertainty-Aware Regularization: The Wild West of Math",
+    "citations": 2,
+    "group": 112,
+    "paper_id": 112
+  },
+  {
+    "title": "AI Banter Buddy: The Next Level",
+    "citations": 17,
+    "group": 113,
+    "paper_id": 113
+  },
+  {
+    "title": "Crystal Clear Property Party",
+    "citations": 3,
+    "group": 114,
+    "paper_id": 114
+  },
+  {
+    "title": "Trap-MID: The Ultimate Model Bouncer",
+    "citations": 12,
+    "group": 115,
+    "paper_id": 115
+  },
+  {
+    "title": "Generative AI and the Great Drone Adventure",
+    "citations": 5,
+    "group": 116,
+    "paper_id": 116
+  },
+  {
+    "title": "Counting Reps and Video Gaps: A Short Note on Repetition",
+    "citations": 19,
+    "group": 117,
+    "paper_id": 117
+  },
+  {
+    "title": "The Great Wikidata Expedition: Conference Pranks Unveiled",
+    "citations": 3,
+    "group": 118,
+    "paper_id": 118
+  },
+  {
+    "title": "Everyday Explanations and the Psychic Connection",
+    "citations": 1,
+    "group": 119,
+    "paper_id": 119
+  },
+  {
+    "title": "Patch Me Up Scotty: The Language Edition",
+    "citations": 6,
+    "group": 120,
+    "paper_id": 120
+  },
+  {
+    "title": "Predictive Chow Down with Big Data",
+    "citations": 4,
+    "group": 121,
+    "paper_id": 121
+  },
+  {
+    "title": "Food Policy Magic: The LLM Meal Deal",
+    "citations": 8,
+    "group": 122,
+    "paper_id": 122
+  },
+  {
+    "title": "Exploring the Secret Lair of Program Ideas",
+    "citations": 5,
+    "group": 123,
+    "paper_id": 123
+  },
+  {
+    "title": "Robotic Roll and Push Academy",
+    "citations": 6,
+    "group": 124,
+    "paper_id": 124
+  },
+  {
+    "title": "The Great Knowledge Bake-Off: Whipping Up Loss Functions",
+    "citations": 19,
+    "group": 125,
+    "paper_id": 125
+  },
+  {
+    "title": "Hyperspace Hilarity and Analogical Antics",
+    "citations": 9,
+    "group": 126,
+    "paper_id": 126
+  },
+  {
+    "title": "Wikidata Wonderland: A Conference Comedy",
+    "citations": 11,
+    "group": 127,
+    "paper_id": 127
+  },
+  {
+    "title": "Interaction Testers: The Variants of Fun",
+    "citations": 9,
+    "group": 128,
+    "paper_id": 128
+  },
+  {
+    "title": "Kalman Filters and GRU Join Forces in the Object Olympics",
+    "citations": 10,
+    "group": 129,
+    "paper_id": 129
+  },
+  {
+    "title": "Gender Bender: The Grant Rate Chronicles",
+    "citations": 4,
+    "group": 130,
+    "paper_id": 130
+  },
+  {
+    "title": "Wild Gaussian Splatting Adventures with Uncertainty on the Side",
+    "citations": 2,
+    "group": 131,
+    "paper_id": 131
+  },
+  {
+    "title": "Rule-Based Ruckus with Language Laughter",
+    "citations": 1,
+    "group": 132,
+    "paper_id": 132
+  },
+  {
+    "title": "The Many Faces of Poly-Grokking",
+    "citations": 16,
+    "group": 133,
+    "paper_id": 133
+  },
+  {
+    "title": "Cognitive Map Adventures in Robotland",
+    "citations": 8,
+    "group": 134,
+    "paper_id": 134
+  },
+  {
+    "title": "Chatty Remedies: Speech Data vs Toxicity Bias Showdown",
+    "citations": 12,
+    "group": 135,
+    "paper_id": 135
+  },
+  {
+    "title": "The Sandwich That Thinks It's a Neural Network",
+    "citations": 10,
+    "group": 136,
+    "paper_id": 136
+  },
+  {
+    "title": "Virtual Reality Check: Trajectories and Where to Trip",
+    "citations": 11,
+    "group": 137,
+    "paper_id": 137
+  },
+  {
+    "title": "Prediction Pals: The Elemental Showdown",
+    "citations": 1,
+    "group": 138,
+    "paper_id": 138
+  },
+  {
+    "title": "Fuzzy Logic and Long-Term Laughter in Nuclear Power Predictions",
+    "citations": 11,
+    "group": 139,
+    "paper_id": 139
+  },
+  {
+    "title": "Mind Reading 101 How to Know What the Other Person Needs",
+    "citations": 9,
+    "group": 140,
+    "paper_id": 140
+  },
+  {
+    "title": "BAMAX: Bots Acting Mischievously Anywhere Xploring",
+    "citations": 3,
+    "group": 141,
+    "paper_id": 141
+  },
+  {
+    "title": "Decodable Information and the Curious Case of Similarity",
+    "citations": 10,
+    "group": 142,
+    "paper_id": 142
+  },
+  {
+    "title": "Object Pushing with Precision and Sass",
+    "citations": 9,
+    "group": 143,
+    "paper_id": 143
+  },
+  {
+    "title": "Pre-Trained Neurons Bolting through Quantum Circuits",
+    "citations": 18,
+    "group": 144,
+    "paper_id": 144
+  },
+  {
+    "title": "The Multimodal Chronicles: Tales of Knowledge Retrieval",
+    "citations": 2,
+    "group": 145,
+    "paper_id": 145
+  },
+  {
+    "title": "The Analogy Chronicles of Conceptual Cosmos",
+    "citations": 13,
+    "group": 146,
+    "paper_id": 146
+  },
+  {
+    "title": "DPU Definitely Puzzling Unicorns",
+    "citations": 9,
+    "group": 147,
+    "paper_id": 147
+  },
+  {
+    "title": "Data Dilemma: How to Shine with Solar Numbers",
+    "citations": 5,
+    "group": 148,
+    "paper_id": 148
+  },
+  {
+    "title": "The Adventures of GRU and the Tracking Titans",
+    "citations": 10,
+    "group": 149,
+    "paper_id": 149
+  },
+  {
+    "title": "CaseClosed: The Language Model Test Case Mystery",
+    "citations": 3,
+    "group": 150,
+    "paper_id": 150
+  },
+  {
+    "title": "The Great Traffic State Showdown: Deep Learning Takes the Wheel",
+    "citations": 6,
+    "group": 151,
+    "paper_id": 151
+  },
+  {
+    "title": "AstroMoo3 The Intergalactic Image Interpreter",
+    "citations": 13,
+    "group": 152,
+    "paper_id": 152
+  },
+  {
+    "title": "Scene Stealers: A Comedy of Human Movements in VR",
+    "citations": 6,
+    "group": 153,
+    "paper_id": 153
+  },
+  {
+    "title": "Clinical Evaluation or Clinical Elevation",
+    "citations": 13,
+    "group": 154,
+    "paper_id": 154
+  },
+  {
+    "title": "The Great AI Evaluation Bake-Off",
+    "citations": 10,
+    "group": 155,
+    "paper_id": 155
+  },
+  {
+    "title": "Reinforcement Learning: A Visual Comedy",
+    "citations": 14,
+    "group": 156,
+    "paper_id": 156
+  },
+  {
+    "title": "Constraint Programmed Clarity",
+    "citations": 2,
+    "group": 157,
+    "paper_id": 157
+  },
+  {
+    "title": "Lo-MARVE Dive Dive Revolution",
+    "citations": 11,
+    "group": 158,
+    "paper_id": 158
+  },
+  {
+    "title": "The Right to Not Be Spied On",
+    "citations": 13,
+    "group": 159,
+    "paper_id": 159
+  },
+  {
+    "title": "Neural Operators Gone Wild: Solar Irradiance Edition",
+    "citations": 9,
+    "group": 160,
+    "paper_id": 160
+  },
+  {
+    "title": "Image Classifiers Unmasked A Causal Comedy",
+    "citations": 9,
+    "group": 161,
+    "paper_id": 161
+  },
+  {
+    "title": "DeepUQ and the Mystery of the Vanishing Certainties",
+    "citations": 7,
+    "group": 162,
+    "paper_id": 162
+  },
+  {
+    "title": "Hierarchical Attention Networks: Because Who Needs Objectivity Anyway",
+    "citations": 13,
+    "group": 163,
+    "paper_id": 163
+  },
+  {
+    "title": "Wikidata Wacky Races: The Population Showdown",
+    "citations": 3,
+    "group": 164,
+    "paper_id": 164
+  },
+  {
+    "title": "Nuclear Nonsense: Fuzzy Models in a Reactor Reality Show",
+    "citations": 9,
+    "group": 165,
+    "paper_id": 165
+  },
+  {
+    "title": "SOPing the AI Blues Away",
+    "citations": 17,
+    "group": 166,
+    "paper_id": 166
+  },
+  {
+    "title": "Algorithmic Antics: The RL Inspect Chronicles",
+    "citations": 15,
+    "group": 167,
+    "paper_id": 167
+  },
+  {
+    "title": "AstroMoo3 The Cosmic Cow That Sees All",
+    "citations": 2,
+    "group": 168,
+    "paper_id": 168
+  },
+  {
+    "title": "PRIMO: Pigeons Reading Instructions for Mildly Obscure Games",
+    "citations": 15,
+    "group": 169,
+    "paper_id": 169
+  },
+  {
+    "title": "Neural Networks Take a Swim in Geometry",
+    "citations": 9,
+    "group": 170,
+    "paper_id": 170
+  },
+  {
+    "title": "Process Party for Human Moves",
+    "citations": 19,
+    "group": 171,
+    "paper_id": 171
+  },
+  {
+    "title": "When LLMs Got Fancy: A Comedy of Hierarchical Attention",
+    "citations": 12,
+    "group": 172,
+    "paper_id": 172
+  },
+  {
+    "title": "DPU Dynamic Potato Update for Mice",
+    "citations": 16,
+    "group": 173,
+    "paper_id": 173
+  },
+  {
+    "title": "The Great Distillation Heist of Diffusion Science",
+    "citations": 18,
+    "group": 174,
+    "paper_id": 174
+  },
+  {
+    "title": "Multi-Material Mirth with Polymetis",
+    "citations": 18,
+    "group": 175,
+    "paper_id": 175
+  },
+  {
+    "title": "Tower of Debiasing",
+    "citations": 3,
+    "group": 176,
+    "paper_id": 176
+  },
+  {
+    "title": "Mission Improbable: Drones, Reinforcement, and Shenanigans",
+    "citations": 1,
+    "group": 177,
+    "paper_id": 177
+  },
+  {
+    "title": "Back to the Future of Time Series",
+    "citations": 6,
+    "group": 178,
+    "paper_id": 178
+  },
+  {
+    "title": "Evaluating CyberSecurity Like Its 1999",
+    "citations": 7,
+    "group": 179,
+    "paper_id": 179
+  },
+  {
+    "title": "Attribute Antics: A Graph Adventure",
+    "citations": 36,
+    "group": 180,
+    "paper_id": 180
+  },
+  {
+    "title": "Surprisingly Popular Votes for Doughnut Elections",
+    "citations": 16,
+    "group": 181,
+    "paper_id": 181
+  },
+  {
+    "title": "Hear Ye Hear Ye: The Quest for the Perfect Dataset",
+    "citations": 3,
+    "group": 182,
+    "paper_id": 182
+  },
+  {
+    "title": "Tooth or Dare: Unmasking Age and Gender with Teeth",
+    "citations": 13,
+    "group": 183,
+    "paper_id": 183
+  },
+  {
+    "title": "Lo-MARVE the Explorer Fish",
+    "citations": 3,
+    "group": 184,
+    "paper_id": 184
+  },
+  {
+    "title": "Variation Analysis: Who Poked the Interaction",
+    "citations": 11,
+    "group": 185,
+    "paper_id": 185
+  },
+  {
+    "title": "TractoMatic: The Ultimate White Matter Wizard",
+    "citations": 19,
+    "group": 186,
+    "paper_id": 186
+  },
+  {
+    "title": "Concentric Circles of Chaos in Popular Voting",
+    "citations": 19,
+    "group": 187,
+    "paper_id": 187
+  },
+  {
+    "title": "Adversarial Linguistics: When Languages Go Wild",
+    "citations": 9,
+    "group": 188,
+    "paper_id": 188
+  },
+  {
+    "title": "Attribute Antics: A Graph Adventure",
+    "citations": 11,
+    "group": 189,
+    "paper_id": 189
+  },
+  {
+    "title": "Machine Learning and Quantum Circuits: A Love Story",
+    "citations": 92,
+    "group": 190,
+    "paper_id": 190
+  },
+  {
+    "title": "Vector Voodoo: The Art of Symbolic Nonsense",
+    "citations": 7,
+    "group": 191,
+    "paper_id": 191
+  },
+  {
+    "title": "Dataset Bootcamp: Training AI to Hear Better",
+    "citations": 1,
+    "group": 192,
+    "paper_id": 192
+  },
+  {
+    "title": "Deformation Nation: The Rise of the Touchy Robot",
+    "citations": 9,
+    "group": 193,
+    "paper_id": 193
+  },
+  {
+    "title": "The Social Outcomes Circus: Juggling AI Policies",
+    "citations": 16,
+    "group": 194,
+    "paper_id": 194
+  },
+  {
+    "title": "Attribute Antics: A Graph Adventure",
+    "citations": 20,
+    "group": 195,
+    "paper_id": 195
+  },
+  {
+    "title": "Relational Riddles: Sorting Out Symbolic Shenanigans",
+    "citations": 4,
+    "group": 196,
+    "paper_id": 196
+  },
+  {
+    "title": "SkyNet Meets SkyNet: AI Agents on a Joyride",
+    "citations": 18,
+    "group": 197,
+    "paper_id": 197
+  },
+  {
+    "title": "Predict-o-Rama: Where VR Meets Human Clumsiness",
+    "citations": 6,
+    "group": 198,
+    "paper_id": 198
+  },
+  {
+    "title": "Mighty Views of Knowledge: The Multiomics Chronicles",
+    "citations": 4,
+    "group": 199,
+    "paper_id": 199
+  },
+  {
+    "title": "HapticHumor: Granular Games for Touchy People",
+    "citations": 1,
+    "group": 200,
+    "paper_id": 200
+  },
+  {
+    "title": "Desktop Spy: The Sharingan Chronicles",
+    "citations": 4,
+    "group": 201,
+    "paper_id": 201
+  },
+  {
+    "title": "LLMs: The Fortune Tellers of Text",
+    "citations": 17,
+    "group": 202,
+    "paper_id": 202
+  },
+  {
+    "title": "Offline Sandwich: No Internet Required",
+    "citations": 5,
+    "group": 203,
+    "paper_id": 203
+  },
+  {
+    "title": "Global Sunburn: Irradiance Estimation and Neural Shenanigans",
+    "citations": 17,
+    "group": 204,
+    "paper_id": 204
+  },
+  {
+    "title": "DPU Dancing Penguins Underwater",
+    "citations": 3,
+    "group": 205,
+    "paper_id": 205
+  },
+  {
+    "title": "When Electrons Go Chill A Fun Evaluation of Superconducting Systems",
+    "citations": 12,
+    "group": 206,
+    "paper_id": 206
+  },
+  {
+    "title": "One Wiggle at a Time Language Agents are Wobbly Wayfarers",
+    "citations": 11,
+    "group": 207,
+    "paper_id": 207
+  },
+  {
+    "title": "PRIMO: Pizza Recipes Inducing Multi-hop Openings",
+    "citations": 2,
+    "group": 208,
+    "paper_id": 208
+  },
+  {
+    "title": "AI Policy with a Side of Social Pie",
+    "citations": 4,
+    "group": 209,
+    "paper_id": 209
+  },
+  {
+    "title": "Sharingan: The Eye That Sees Your Clicks",
+    "citations": 60,
+    "group": 210,
+    "paper_id": 210
+  },
+  {
+    "title": "Reinforcement Learning's Parameter Playground",
+    "citations": 16,
+    "group": 211,
+    "paper_id": 211
+  },
+  {
+    "title": "Language Models in Material World",
+    "citations": 16,
+    "group": 212,
+    "paper_id": 212
+  },
+  {
+    "title": "Graphing My Way to Diagnosis",
+    "citations": 16,
+    "group": 213,
+    "paper_id": 213
+  },
+  {
+    "title": "Deep Learning and the Quest for Traffic Nirvana",
+    "citations": 11,
+    "group": 214,
+    "paper_id": 214
+  },
+  {
+    "title": "Building a Better Bias Tower",
+    "citations": 16,
+    "group": 215,
+    "paper_id": 215
+  },
+  {
+    "title": "Model Agnostic? More Like Model Agonistic",
+    "citations": 8,
+    "group": 216,
+    "paper_id": 216
+  },
+  {
+    "title": "Smoke Signals: The Battle of the Models",
+    "citations": 18,
+    "group": 217,
+    "paper_id": 217
+  },
+  {
+    "title": "The Great SQL-oni: A Multi-Generator Adventure",
+    "citations": 8,
+    "group": 218,
+    "paper_id": 218
+  },
+  {
+    "title": "Mixture of Expert Mischief with Fine-Tuning",
+    "citations": 11,
+    "group": 219,
+    "paper_id": 219
+  },
+  {
+    "title": "Seeing is Believing Autoregressive Shenanigans",
+    "citations": 2,
+    "group": 220,
+    "paper_id": 220
+  },
+  {
+    "title": "The Great AI Dress Up Party But Nobody Changed",
+    "citations": 4,
+    "group": 221,
+    "paper_id": 221
+  },
+  {
+    "title": "RLInspecting the Inspectors",
+    "citations": 13,
+    "group": 222,
+    "paper_id": 222
+  },
+  {
+    "title": "Attribute Antics: A Graph Adventure",
+    "citations": 15,
+    "group": 223,
+    "paper_id": 223
+  },
+  {
+    "title": "Science Needs a Safety Net",
+    "citations": 15,
+    "group": 224,
+    "paper_id": 224
+  },
+  {
+    "title": "Network Notions: Learning Through Randomness",
+    "citations": 19,
+    "group": 225,
+    "paper_id": 225
+  },
+  {
+    "title": "Logical Reasoning for Dummies: Trust Edition",
+    "citations": 7,
+    "group": 226,
+    "paper_id": 226
+  },
+  {
+    "title": "Rater Raiders: The Search for Consistent Vessels",
+    "citations": 12,
+    "group": 227,
+    "paper_id": 227
+  },
+  {
+    "title": "Lost in the Hyperspace of Analogies",
+    "citations": 9,
+    "group": 228,
+    "paper_id": 228
+  },
+  {
+    "title": "Riddles and Raucous Replies: The Art of Confusing AI",
+    "citations": 14,
+    "group": 229,
+    "paper_id": 229
+  },
+  {
+    "title": "LLMunchies for Food Foresight",
+    "citations": 9,
+    "group": 230,
+    "paper_id": 230
+  },
+  {
+    "title": "Fusion Frenzy: When AI Meets Answer Sets",
+    "citations": 18,
+    "group": 231,
+    "paper_id": 231
+  },
+  {
+    "title": "R3HF: Reward Reshuffling Really Helps Robots",
+    "citations": 14,
+    "group": 232,
+    "paper_id": 232
+  },
+  {
+    "title": "Catch That Model with the Trap-MID",
+    "citations": 7,
+    "group": 233,
+    "paper_id": 233
+  },
+  {
+    "title": "Large Language Models and the Quest for the Holy Retrieval",
+    "citations": 15,
+    "group": 234,
+    "paper_id": 234
+  },
+  {
+    "title": "Molar Matter: Cracking the Case of Age and Gender",
+    "citations": 10,
+    "group": 235,
+    "paper_id": 235
+  },
+  {
+    "title": "Quadruped Gymnastics: Offline Adjustments for Clumsy Paws",
+    "citations": 2,
+    "group": 236,
+    "paper_id": 236
+  },
+  {
+    "title": "Say What? Speech Data Kicks Toxicity Bias to the Curb",
+    "citations": 11,
+    "group": 237,
+    "paper_id": 237
+  },
+  {
+    "title": "Performance Enhancing Data for Chatty AIs",
+    "citations": 11,
+    "group": 238,
+    "paper_id": 238
+  },
+  {
+    "title": "Words That Grant: A Gendered Comedy",
+    "citations": 14,
+    "group": 239,
+    "paper_id": 239
+  },
+  {
+    "title": "Rethink Your News Feed Before It Rethinks You",
+    "citations": 15,
+    "group": 240,
+    "paper_id": 240
+  },
+  {
+    "title": "Emo-Data Dance Party: Social Media in the Middle Kingdom",
+    "citations": 12,
+    "group": 241,
+    "paper_id": 241
+  },
+  {
+    "title": "SCORE: Seriously Confusing Overly Redundant Errors",
+    "citations": 3,
+    "group": 242,
+    "paper_id": 242
+  },
+  {
+    "title": "Tactile Perception: How Not to Get Pinched by Your Robot",
+    "citations": 18,
+    "group": 243,
+    "paper_id": 243
+  },
+  {
+    "title": "Generative AI: The Wireless Network Wingman",
+    "citations": 19,
+    "group": 244,
+    "paper_id": 244
+  },
+  {
+    "title": "Tract or Treat: A Spooky Segmentation Saga",
+    "citations": 1,
+    "group": 245,
+    "paper_id": 245
+  },
+  {
+    "title": "Debiasing in the Clouds",
+    "citations": 2,
+    "group": 246,
+    "paper_id": 246
+  },
+  {
+    "title": "RepNet Rodeo: Lassoing Temporal Repetitions in Videos",
+    "citations": 14,
+    "group": 247,
+    "paper_id": 247
+  },
+  {
+    "title": "Decision Making in the Age of Confused Algorithms",
+    "citations": 11,
+    "group": 248,
+    "paper_id": 248
+  },
+  {
+    "title": "Questionable Answers: A Comedy of Wordplay and Deception",
+    "citations": 15,
+    "group": 249,
+    "paper_id": 249
+  },
+  {
+    "title": "Knowledge is Power but So is Re-Ranking",
+    "citations": 9,
+    "group": 250,
+    "paper_id": 250
+  },
+  {
+    "title": "Web Wise Guys and Language Laughter",
+    "citations": 15,
+    "group": 251,
+    "paper_id": 251
+  },
+  {
+    "title": "Rater Raiders: The Search for Consistent Vessels",
+    "citations": 65,
+    "group": 252,
+    "paper_id": 252
+  },
+  {
+    "title": "The Great Dental Reveal: Who's Behind the Smile",
+    "citations": 6,
+    "group": 253,
+    "paper_id": 253
+  },
+  {
+    "title": "Hybrid Hijinks in Learning Land",
+    "citations": 6,
+    "group": 254,
+    "paper_id": 254
+  },
+  {
+    "title": "Towering Over Bias",
+    "citations": 3,
+    "group": 255,
+    "paper_id": 255
+  },
+  {
+    "title": "When Tongues Talk Back to Thoughts",
+    "citations": 58,
+    "group": 256,
+    "paper_id": 256
+  },
+  {
+    "title": "SAD-TIME: When Mood Swings Meet a Spatiotemporal Fling",
+    "citations": 6,
+    "group": 257,
+    "paper_id": 257
+  },
+  {
+    "title": "Academic Data Drama: A Language Model Soap Opera",
+    "citations": 9,
+    "group": 258,
+    "paper_id": 258
+  },
+  {
+    "title": "Tree-mendously Logical Why Did the Tree Cross the Road",
+    "citations": 18,
+    "group": 259,
+    "paper_id": 259
+  },
+  {
+    "title": "When Images Speak Louder than Words in Knowledge Retrieval",
+    "citations": 3,
+    "group": 260,
+    "paper_id": 260
+  },
+  {
+    "title": "Motor Detective Agency: Signature Edition",
+    "citations": 10,
+    "group": 261,
+    "paper_id": 261
+  },
+  {
+    "title": "AI Speakers Need a Better Training Regimen",
+    "citations": 5,
+    "group": 262,
+    "paper_id": 262
+  },
+  {
+    "title": "Wireless Wonders: AI's Quest for Data Enhancement",
+    "citations": 4,
+    "group": 263,
+    "paper_id": 263
+  },
+  {
+    "title": "Content-Based News and the Quest for the Holy Negative Sample",
+    "citations": 10,
+    "group": 264,
+    "paper_id": 264
+  },
+  {
+    "title": "Ray Tracing and Chilling with a Side of Sandwich",
+    "citations": 7,
+    "group": 265,
+    "paper_id": 265
+  },
+  {
+    "title": "Parameter Pirates: Fine-Tuning the Expert Crew",
+    "citations": 18,
+    "group": 266,
+    "paper_id": 266
+  },
+  {
+    "title": "BAMAX: Backtracking Agents Make Adventures Exciting",
+    "citations": 13,
+    "group": 267,
+    "paper_id": 267
+  },
+  {
+    "title": "Predicting the Unpredictable with LLMs",
+    "citations": 17,
+    "group": 268,
+    "paper_id": 268
+  },
+  {
+    "title": "Differentiable Diner: A Menu of Wireless Delight",
+    "citations": 11,
+    "group": 269,
+    "paper_id": 269
+  },
+  {
+    "title": "Machine Learning and Quantum Circuits: A Love Story",
+    "citations": 9,
+    "group": 270,
+    "paper_id": 270
+  },
+  {
+    "title": "Feeling Your Way: A Robot's Journey Through Tactile Awkwardness",
+    "citations": 2,
+    "group": 271,
+    "paper_id": 271
+  },
+  {
+    "title": "Recognizing Humans Before They Recognize Us",
+    "citations": 13,
+    "group": 272,
+    "paper_id": 272
+  },
+  {
+    "title": "Assessing Risks Like a Pro",
+    "citations": 14,
+    "group": 273,
+    "paper_id": 273
+  },
+  {
+    "title": "Debiasing Gets Elevated",
+    "citations": 17,
+    "group": 274,
+    "paper_id": 274
+  },
+  {
+    "title": "The Great RepNet Video Counting Showdown",
+    "citations": 14,
+    "group": 275,
+    "paper_id": 275
+  },
+  {
+    "title": "Loss and Found: The Quest for Knowledge Encoding",
+    "citations": 6,
+    "group": 276,
+    "paper_id": 276
+  },
+  {
+    "title": "What Your Similarity Says About My Decodable Secrets",
+    "citations": 19,
+    "group": 277,
+    "paper_id": 277
+  },
+  {
+    "title": "AI Frameworks and the Art of Evaluation Fails",
+    "citations": 14,
+    "group": 278,
+    "paper_id": 278
+  },
+  {
+    "title": "NBCE: Not Born Clever Enough for Summarization",
+    "citations": 14,
+    "group": 279,
+    "paper_id": 279
+  },
+  {
+    "title": "Graph it Like its Hot",
+    "citations": 16,
+    "group": 280,
+    "paper_id": 280
+  },
+  {
+    "title": "Retrieval Ruckus in the Time Forecasting Zone",
+    "citations": 10,
+    "group": 281,
+    "paper_id": 281
+  },
+  {
+    "title": "News Noodles for Language Models",
+    "citations": 7,
+    "group": 282,
+    "paper_id": 282
+  },
+  {
+    "title": "Summarize This Not That: The NBCE Chronicles",
+    "citations": 3,
+    "group": 283,
+    "paper_id": 283
+  },
+  {
+    "title": "Lo-MARVE Underwater Bargain Hunter",
+    "citations": 15,
+    "group": 284,
+    "paper_id": 284
+  },
+  {
+    "title": "Decisions Made Easy Thanks to Our Friendly Neighborhood GPTree",
+    "citations": 3,
+    "group": 285,
+    "paper_id": 285
+  },
+  {
+    "title": "The Great 4D Gaussian Splat-off: Regularization Edition",
+    "citations": 4,
+    "group": 286,
+    "paper_id": 286
+  },
+  {
+    "title": "Age and Gender Whodunit: The Tooth Fairy's Guide",
+    "citations": 19,
+    "group": 287,
+    "paper_id": 287
+  },
+  {
+    "title": "LLM on the Loose: Detecting Log Mischief",
+    "citations": 7,
+    "group": 288,
+    "paper_id": 288
+  },
+  {
+    "title": "Steering Wheel Wizards and Their Sparse Secrets",
+    "citations": 18,
+    "group": 289,
+    "paper_id": 289
+  },
+  {
+    "title": "One Hop at a Time Language Agents are Haphazard Hopefuls",
+    "citations": 9,
+    "group": 290,
+    "paper_id": 290
+  },
+  {
+    "title": "Constructing Safety One Prompt at a Time: AI Takes the Helm",
+    "citations": 7,
+    "group": 291,
+    "paper_id": 291
+  },
+  {
+    "title": "Inspecting RL while Sipping Tea",
+    "citations": 14,
+    "group": 292,
+    "paper_id": 292
+  },
+  {
+    "title": "SAD-TIME: The Automated Mood Detector for Pessimists",
+    "citations": 11,
+    "group": 293,
+    "paper_id": 293
+  },
+  {
+    "title": "Diffusion Dilemma and Perceptual Shenanigans",
+    "citations": 18,
+    "group": 294,
+    "paper_id": 294
+  },
+  {
+    "title": "Perceptual Tasks and the Case of the Diffusion Models",
+    "citations": 15,
+    "group": 295,
+    "paper_id": 295
+  },
+  {
+    "title": "Guardians of the Data Galaxy",
+    "citations": 9,
+    "group": 296,
+    "paper_id": 296
+  },
+  {
+    "title": "When Touch Meets Tech: A Cross Modal Love Story",
+    "citations": 2,
+    "group": 297,
+    "paper_id": 297
+  },
+  {
+    "title": "When Big Language Models Meet Academic Data: A Comedy Show",
+    "citations": 2,
+    "group": 298,
+    "paper_id": 298
+  },
+  {
+    "title": "Poly-METIS: Master of All Materials",
+    "citations": 8,
+    "group": 299,
+    "paper_id": 299
+  },
+  {
+    "title": "Tested to the Limits: The VALTEST Saga",
+    "citations": 1,
+    "group": 300,
+    "paper_id": 300
+  },
+  {
+    "title": "Models Gone Wild The Underwhelming Medical Makeover",
+    "citations": 10,
+    "group": 301,
+    "paper_id": 301
+  },
+  {
+    "title": "R3HF: Redistributing Rewards Realistically for Ridiculously Reinforced Robots",
+    "citations": 2,
+    "group": 302,
+    "paper_id": 302
+  },
+  {
+    "title": "Cognitive GPS Gone Rogue",
+    "citations": 1,
+    "group": 303,
+    "paper_id": 303
+  },
+  {
+    "title": "When Tongues Talk Back to Thoughts",
+    "citations": 29,
+    "group": 304,
+    "paper_id": 304
+  },
+  {
+    "title": "SOP, There It Is: A Framework for Laughs and Policies",
+    "citations": 14,
+    "group": 305,
+    "paper_id": 305
+  },
+  {
+    "title": "Causal Connections and the Quest for Image Clarity",
+    "citations": 16,
+    "group": 306,
+    "paper_id": 306
+  },
+  {
+    "title": "Multimodal Mayhem in Material Land",
+    "citations": 18,
+    "group": 307,
+    "paper_id": 307
+  },
+  {
+    "title": "Intelligent Algorithms Unplugged: The Motor Diaries",
+    "citations": 14,
+    "group": 308,
+    "paper_id": 308
+  },
+  {
+    "title": "Fake It Till You Make It Detection",
+    "citations": 19,
+    "group": 309,
+    "paper_id": 309
+  },
+  {
+    "title": "Variational Quantum Circuits: The Neural Network Whisperer",
+    "citations": 10,
+    "group": 310,
+    "paper_id": 310
+  },
+  {
+    "title": "Zero Shot No Problem Linguistic Olympics",
+    "citations": 7,
+    "group": 311,
+    "paper_id": 311
+  },
+  {
+    "title": "Toxic Talk: How Speech Data Became the Bias Buster",
+    "citations": 5,
+    "group": 312,
+    "paper_id": 312
+  },
+  {
+    "title": "Scientifically Speaking: A Journey through the Analogical Dimension",
+    "citations": 17,
+    "group": 313,
+    "paper_id": 313
+  },
+  {
+    "title": "Navigating Life Like a Grown Up",
+    "citations": 3,
+    "group": 314,
+    "paper_id": 314
+  },
+  {
+    "title": "The Great LLM Decision-Making Bake Off",
+    "citations": 13,
+    "group": 315,
+    "paper_id": 315
+  },
+  {
+    "title": "AI Policy with a Side of Social Pie",
+    "citations": 31,
+    "group": 316,
+    "paper_id": 316
+  },
+  {
+    "title": "Guardrails Gonna Guardrail",
+    "citations": 14,
+    "group": 317,
+    "paper_id": 317
+  },
+  {
+    "title": "DipDare: Haptic Adventures in Grain Land",
+    "citations": 16,
+    "group": 318,
+    "paper_id": 318
+  },
+  {
+    "title": "Meta-Learning Mayhem: Agents Against Fake Faces",
+    "citations": 17,
+    "group": 319,
+    "paper_id": 319
+  },
+  {
+    "title": "When LLMs Try Their Hand at Divination",
+    "citations": 3,
+    "group": 320,
+    "paper_id": 320
+  },
+  {
+    "title": "Lost in Translation: Steering Vectors and Sparse Shenanigans",
+    "citations": 8,
+    "group": 321,
+    "paper_id": 321
+  },
+  {
+    "title": "Critique Me If You Can: The LLM Show",
+    "citations": 88,
+    "group": 322,
+    "paper_id": 322
+  },
+  {
+    "title": "Robust Rebellion: The Multi-Agent Deepfake Fiasco",
+    "citations": 13,
+    "group": 323,
+    "paper_id": 323
+  },
+  {
+    "title": "AI Policy with a Side of Social Pie",
+    "citations": 32,
+    "group": 324,
+    "paper_id": 324
+  },
+  {
+    "title": "Do LLMs Have a Crystal Ball",
+    "citations": 17,
+    "group": 325,
+    "paper_id": 325
+  },
+  {
+    "title": "Diffusion and the Dance of the Wobbly Four Legs",
+    "citations": 4,
+    "group": 326,
+    "paper_id": 326
+  },
+  {
+    "title": "Distilling Physics Like a Fine Wine",
+    "citations": 7,
+    "group": 327,
+    "paper_id": 327
+  },
+  {
+    "title": "The Agnostic Explanation Extravaganza",
+    "citations": 15,
+    "group": 328,
+    "paper_id": 328
+  },
+  {
+    "title": "Self Improvement: A Language Model's Memoir",
+    "citations": 9,
+    "group": 329,
+    "paper_id": 329
+  },
+  {
+    "title": "Sharingan: The Eye That Sees Your Clicks",
+    "citations": 91,
+    "group": 330,
+    "paper_id": 330
+  },
+  {
+    "title": "Time Travelers Guide to Forecasting",
+    "citations": 13,
+    "group": 331,
+    "paper_id": 331
+  },
+  {
+    "title": "Transformers in Scrubs",
+    "citations": 15,
+    "group": 332,
+    "paper_id": 332
+  },
+  {
+    "title": "Finding Nemo's Parameters with Reinforcement Learning",
+    "citations": 2,
+    "group": 333,
+    "paper_id": 333
+  },
+  {
+    "title": "VALtestosterone: Pumping Up Your Validation Game",
+    "citations": 5,
+    "group": 334,
+    "paper_id": 334
+  },
+  {
+    "title": "Chill Out We Evaluated Superconducting Digital Systems",
+    "citations": 7,
+    "group": 335,
+    "paper_id": 335
+  },
+  {
+    "title": "Reasoning with a Side of Hyperspace Shenanigans",
+    "citations": 13,
+    "group": 336,
+    "paper_id": 336
+  },
+  {
+    "title": "Activity Detectives on the Loose",
+    "citations": 9,
+    "group": 337,
+    "paper_id": 337
+  },
+  {
+    "title": "Banishing Bias: The Speech Data Chronicles",
+    "citations": 15,
+    "group": 338,
+    "paper_id": 338
+  },
+  {
+    "title": "The Great Signature Hunt: Motor Edition",
+    "citations": 10,
+    "group": 339,
+    "paper_id": 339
+  },
+  {
+    "title": "Critique Me If You Can: The LLM Show",
+    "citations": 9,
+    "group": 340,
+    "paper_id": 340
+  },
+  {
+    "title": "Three Phase Wizards: The Algorithm Chronicles",
+    "citations": 3,
+    "group": 341,
+    "paper_id": 341
+  },
+  {
+    "title": "AI Policy with a Side of Social Pie",
+    "citations": 92,
+    "group": 342,
+    "paper_id": 342
+  },
+  {
+    "title": "Drifty Deepfakes: A Comedy of Errors in Detection",
+    "citations": 1,
+    "group": 343,
+    "paper_id": 343
+  },
+  {
+    "title": "Burning Questions: Transfer Learning vs VGG vs SVM",
+    "citations": 4,
+    "group": 344,
+    "paper_id": 344
+  },
+  {
+    "title": "Proteins Got Hashing Skills",
+    "citations": 4,
+    "group": 345,
+    "paper_id": 345
+  },
+  {
+    "title": "Texty McTextface Goes SQLing",
+    "citations": 13,
+    "group": 346,
+    "paper_id": 346
+  },
+  {
+    "title": "Lo-MARVE the Unsinkable Budget",
+    "citations": 10,
+    "group": 347,
+    "paper_id": 347
+  },
+  {
+    "title": "Diving Deep into UQ: Where Certainty Goes to Die",
+    "citations": 7,
+    "group": 348,
+    "paper_id": 348
+  },
+  {
+    "title": "DPU Donuts Pizza and Unicorns",
+    "citations": 15,
+    "group": 349,
+    "paper_id": 349
+  },
+  {
+    "title": "Prompting Safety: When AI Meets Hard Hats and Humor",
+    "citations": 15,
+    "group": 350,
+    "paper_id": 350
+  },
+  {
+    "title": "Doctor Summarizer or How I Learned to Love Context",
+    "citations": 15,
+    "group": 351,
+    "paper_id": 351
+  },
+  {
+    "title": "Model Inversion Under a Trapdoor Naptime",
+    "citations": 12,
+    "group": 352,
+    "paper_id": 352
+  },
+  {
+    "title": "Scaling Up Confusion in Perceptual Models",
+    "citations": 6,
+    "group": 353,
+    "paper_id": 353
+  },
+  {
+    "title": "AstroM3 The Astronomical Multimodal Mishmash",
+    "citations": 16,
+    "group": 354,
+    "paper_id": 354
+  },
+  {
+    "title": "Material Matters: A Graphical Love Story",
+    "citations": 16,
+    "group": 355,
+    "paper_id": 355
+  },
+  {
+    "title": "Neural Networks and the Mystery of MCI",
+    "citations": 6,
+    "group": 356,
+    "paper_id": 356
+  },
+  {
+    "title": "The Image Illusionist's Guide to Detection",
+    "citations": 19,
+    "group": 357,
+    "paper_id": 357
+  },
+  {
+    "title": "Daily News or Daily Muse for LLMs",
+    "citations": 5,
+    "group": 358,
+    "paper_id": 358
+  },
+  {
+    "title": "Policing AI with Priorities and Punchlines",
+    "citations": 1,
+    "group": 359,
+    "paper_id": 359
+  },
+  {
+    "title": "Tongue Twisters and Thought Busters",
+    "citations": 14,
+    "group": 360,
+    "paper_id": 360
+  },
+  {
+    "title": "SCORE: Sneaky Coders Ruining Everything",
+    "citations": 3,
+    "group": 361,
+    "paper_id": 361
+  },
+  {
+    "title": "Superconducting Shenanigans A Level Up in Digital Performance",
+    "citations": 1,
+    "group": 362,
+    "paper_id": 362
+  },
+  {
+    "title": "Scaling Mount Diffusion for the Perceptually Challenged",
+    "citations": 17,
+    "group": 363,
+    "paper_id": 363
+  },
+  {
+    "title": "Perfectly Routed Experts for Fine Tuning Fun",
+    "citations": 3,
+    "group": 364,
+    "paper_id": 364
+  },
+  {
+    "title": "SAD-TIME: The Network That Feels Your Blues Like a Pro",
+    "citations": 16,
+    "group": 365,
+    "paper_id": 365
+  },
+  {
+    "title": "Negative Sampling and the Quest for the Perfect News Snack",
+    "citations": 6,
+    "group": 366,
+    "paper_id": 366
+  },
+  {
+    "title": "AutoValidation: The Quest for the Perfect Test Case",
+    "citations": 6,
+    "group": 367,
+    "paper_id": 367
+  },
+  {
+    "title": "Trapdoor Tactics for Sneaky Models",
+    "citations": 12,
+    "group": 368,
+    "paper_id": 368
+  },
+  {
+    "title": "DPU Definitely Puzzling Unicorns",
+    "citations": 28,
+    "group": 369,
+    "paper_id": 369
+  },
+  {
+    "title": "I See You Gaming With Sharingan",
+    "citations": 16,
+    "group": 370,
+    "paper_id": 370
+  },
+  {
+    "title": "Classifiers Gone Wild The Causal Chronicles",
+    "citations": 15,
+    "group": 371,
+    "paper_id": 371
+  },
+  {
+    "title": "Traffic Jam Solutions Brought to You by AI and Chaos",
+    "citations": 1,
+    "group": 372,
+    "paper_id": 372
+  },
+  {
+    "title": "Cliff Notes for Clinicians: The Long and Short of It",
+    "citations": 14,
+    "group": 373,
+    "paper_id": 373
+  },
+  {
+    "title": "Stochastic Shenanigans in Learning Networks",
+    "citations": 6,
+    "group": 374,
+    "paper_id": 374
+  },
+  {
+    "title": "The Great AI Prank: Hybrid Tricks for Questionable Queries",
+    "citations": 8,
+    "group": 375,
+    "paper_id": 375
+  },
+  {
+    "title": "The Great RL Visualizer Showdown",
+    "citations": 18,
+    "group": 376,
+    "paper_id": 376
+  },
+  {
+    "title": "UAVs Gone Wild: Reinforcement and Road Trips",
+    "citations": 19,
+    "group": 377,
+    "paper_id": 377
+  },
+  {
+    "title": "The Great Debate What Do Classifiers Really Want",
+    "citations": 3,
+    "group": 378,
+    "paper_id": 378
+  },
+  {
+    "title": "When Words Go Wild: Speech Data to the Rescue",
+    "citations": 7,
+    "group": 379,
+    "paper_id": 379
+  },
+  {
+    "title": "Long Story Short: Language Models in Therapy",
+    "citations": 6,
+    "group": 380,
+    "paper_id": 380
+  },
+  {
+    "title": "A Quest for the Elusive Code Dimensions",
+    "citations": 13,
+    "group": 381,
+    "paper_id": 381
+  },
+  {
+    "title": "DeLorean Data: Time Series with a Twist",
+    "citations": 3,
+    "group": 382,
+    "paper_id": 382
+  },
+  {
+    "title": "Sampling Negatively: The Art of Bad News Choices",
+    "citations": 11,
+    "group": 383,
+    "paper_id": 383
+  },
+  {
+    "title": "MLV Squared: The Great Meningeal Showdown",
+    "citations": 14,
+    "group": 384,
+    "paper_id": 384
+  },
+  {
+    "title": "Trajectory Trotters: Dancing Through Diverse VR Worlds",
+    "citations": 3,
+    "group": 385,
+    "paper_id": 385
+  },
+  {
+    "title": "Decoding the Mystery of Representational Similarity",
+    "citations": 6,
+    "group": 386,
+    "paper_id": 386
+  },
+  {
+    "title": "PRIMO: Pet Rock Induction for Multi-hop Outrage",
+    "citations": 9,
+    "group": 387,
+    "paper_id": 387
+  },
+  {
+    "title": "SCORE: Silly Code References for Static Scripts",
+    "citations": 13,
+    "group": 388,
+    "paper_id": 388
+  },
+  {
+    "title": "MCI Diagnosis: The Graphical Novel",
+    "citations": 11,
+    "group": 389,
+    "paper_id": 389
+  },
+  {
+    "title": "The Great Machine Misorder",
+    "citations": 12,
+    "group": 390,
+    "paper_id": 390
+  },
+  {
+    "title": "Physics Informed Shenanigans in Distillation",
+    "citations": 12,
+    "group": 391,
+    "paper_id": 391
+  },
+  {
+    "title": "Graphical Flow Mysteries Unveiled",
+    "citations": 18,
+    "group": 392,
+    "paper_id": 392
+  },
+  {
+    "title": "Hunting for Hidden Code Corners",
+    "citations": 6,
+    "group": 393,
+    "paper_id": 393
+  },
+  {
+    "title": "Chatty Cathy Gets Longer: A Model's Journey",
+    "citations": 16,
+    "group": 394,
+    "paper_id": 394
+  },
+  {
+    "title": "SAD-TIME: Extracting Features and Feelings Faster Than Your Therapist",
+    "citations": 12,
+    "group": 395,
+    "paper_id": 395
+  },
+  {
+    "title": "BAMAX: Backtrack And Munch All Xploration",
+    "citations": 6,
+    "group": 396,
+    "paper_id": 396
+  },
+  {
+    "title": "Artificial Unrankable Shenanigans",
+    "citations": 12,
+    "group": 397,
+    "paper_id": 397
+  },
+  {
+    "title": "Performance Puzzles in Stochastic Playgrounds",
+    "citations": 6,
+    "group": 398,
+    "paper_id": 398
+  },
+  {
+    "title": "AI Gone Wireless: augmenting data with a side of humor",
+    "citations": 5,
+    "group": 399,
+    "paper_id": 399
+  },
+  {
+    "title": "Material Girls Get Crystalized",
+    "citations": 13,
+    "group": 400,
+    "paper_id": 400
+  },
+  {
+    "title": "PSO and the Quest for Differential Equation Glory",
+    "citations": 11,
+    "group": 401,
+    "paper_id": 401
+  },
+  {
+    "title": "Retrieval Augmented Giggles with Language Models",
+    "citations": 10,
+    "group": 402,
+    "paper_id": 402
+  },
+  {
+    "title": "DipMeAndSee: Feeling the Granules",
+    "citations": 17,
+    "group": 403,
+    "paper_id": 403
+  },
+  {
+    "title": "Forecastosaurus Rex and the Retrieval Adventures",
+    "citations": 19,
+    "group": 404,
+    "paper_id": 404
+  },
+  {
+    "title": "Decomposing Steering Vectors: A Sparse Comedy",
+    "citations": 7,
+    "group": 405,
+    "paper_id": 405
+  },
+  {
+    "title": "When Tongues Talk Back to Thoughts",
+    "citations": 16,
+    "group": 406,
+    "paper_id": 406
+  },
+  {
+    "title": "Securing Cyberspace with Laughter",
+    "citations": 15,
+    "group": 407,
+    "paper_id": 407
+  },
+  {
+    "title": "Polymer Pals and Language Gals",
+    "citations": 9,
+    "group": 408,
+    "paper_id": 408
+  },
+  {
+    "title": "The Great Deepfake Bake-off: Meta-Learning Madness",
+    "citations": 3,
+    "group": 409,
+    "paper_id": 409
+  },
+  {
+    "title": "Scientifically Speaking: A Journey through the Analogical Dimension",
+    "citations": 24,
+    "group": 410,
+    "paper_id": 410
+  },
+  {
+    "title": "Action Sequences Unveiled: The Sharingan Show",
+    "citations": 9,
+    "group": 411,
+    "paper_id": 411
+  },
+  {
+    "title": "Transform and Roll Out Risk",
+    "citations": 9,
+    "group": 412,
+    "paper_id": 412
+  },
+  {
+    "title": "Smarty Pants Models Read the News",
+    "citations": 10,
+    "group": 413,
+    "paper_id": 413
+  },
+  {
+    "title": "Popular Vote Tacos: Layered Rankings with a Twist",
+    "citations": 4,
+    "group": 414,
+    "paper_id": 414
+  },
+  {
+    "title": "Information Extraction: The Great Language Pick and Fight",
+    "citations": 2,
+    "group": 415,
+    "paper_id": 415
+  },
+  {
+    "title": "DPU Definitely Puzzling Unicorns",
+    "citations": 53,
+    "group": 416,
+    "paper_id": 416
+  },
+  {
+    "title": "Machine Learning and Quantum Circuits: A Love Story",
+    "citations": 12,
+    "group": 417,
+    "paper_id": 417
+  },
+  {
+    "title": "Empirical Adventures in AI Land",
+    "citations": 4,
+    "group": 418,
+    "paper_id": 418
+  },
+  {
+    "title": "When Similarity Measures Go on a Decodable Adventure",
+    "citations": 3,
+    "group": 419,
+    "paper_id": 419
+  },
+  {
+    "title": "PerceiverSational Music Magic",
+    "citations": 7,
+    "group": 420,
+    "paper_id": 420
+  },
+  {
+    "title": "Hot Mess: Comparing Fire Detection Models",
+    "citations": 4,
+    "group": 421,
+    "paper_id": 421
+  },
+  {
+    "title": "Log Your Worries Away",
+    "citations": 3,
+    "group": 422,
+    "paper_id": 422
+  },
+  {
+    "title": "Snacktastic Insights: LLMs to the Rescue",
+    "citations": 5,
+    "group": 423,
+    "paper_id": 423
+  },
+  {
+    "title": "Lo-MARVE No More Sea Drones",
+    "citations": 13,
+    "group": 424,
+    "paper_id": 424
+  },
+  {
+    "title": "SegmeNTastic: A Tract-sational Adventure in Embedding",
+    "citations": 18,
+    "group": 425,
+    "paper_id": 425
+  },
+  {
+    "title": "One Stride at a Time Language Agents are Stumbling Schedulers",
+    "citations": 11,
+    "group": 426,
+    "paper_id": 426
+  },
+  {
+    "title": "Parameter Party with Reinforcement Learning",
+    "citations": 11,
+    "group": 427,
+    "paper_id": 427
+  },
+  {
+    "title": "Grant Me the Gendered Words",
+    "citations": 3,
+    "group": 428,
+    "paper_id": 428
+  },
+  {
+    "title": "Evaluating AIs and Other Disasters",
+    "citations": 9,
+    "group": 429,
+    "paper_id": 429
+  },
+  {
+    "title": "Irradiance Investigations: A Neural Operator Odyssey",
+    "citations": 11,
+    "group": 430,
+    "paper_id": 430
+  },
+  {
+    "title": "Corrective Brain Fumble",
+    "citations": 19,
+    "group": 431,
+    "paper_id": 431
+  },
+  {
+    "title": "Uncertainty Schmurtnity: Deep Learning Gets Confused",
+    "citations": 4,
+    "group": 432,
+    "paper_id": 432
+  },
+  {
+    "title": "Machine Learning and Quantum Circuits: A Love Story",
+    "citations": 38,
+    "group": 433,
+    "paper_id": 433
+  },
+  {
+    "title": "Reasoning at the Speed of Chat",
+    "citations": 5,
+    "group": 434,
+    "paper_id": 434
+  },
+  {
+    "title": "The Learning Jumble of Stochastic Configurations",
+    "citations": 15,
+    "group": 435,
+    "paper_id": 435
+  },
+  {
+    "title": "Behavioral Banquets with Predictive Palate",
+    "citations": 6,
+    "group": 436,
+    "paper_id": 436
+  },
+  {
+    "title": "R3HF: Reward Repackaging for Reinforcement Learning Shenanigans",
+    "citations": 95,
+    "group": 437,
+    "paper_id": 437
+  },
+  {
+    "title": "Evaluating Worlds: Do LLMs Know What They Are Doing",
+    "citations": 15,
+    "group": 438,
+    "paper_id": 438
+  },
+  {
+    "title": "Rater Raiders: The Search for Consistent Vessels",
+    "citations": 15,
+    "group": 439,
+    "paper_id": 439
+  },
+  {
+    "title": "TestCaseTroll: The Language Model Prankster",
+    "citations": 4,
+    "group": 440,
+    "paper_id": 440
+  },
+  {
+    "title": "Inversion Prevention: A Trapdoor Comedy",
+    "citations": 9,
+    "group": 441,
+    "paper_id": 441
+  },
+  {
+    "title": "Reasoning with a Side of Retrieval",
+    "citations": 9,
+    "group": 442,
+    "paper_id": 442
+  },
+  {
+    "title": "Running Wild: Diffusion Models in Floppy Footed Adventures",
+    "citations": 7,
+    "group": 443,
+    "paper_id": 443
+  },
+  {
+    "title": "Deep Learning and the Art of Answer Set Programming",
+    "citations": 4,
+    "group": 444,
+    "paper_id": 444
+  },
+  {
+    "title": "Protein Structure and the Art of Hashing",
+    "citations": 6,
+    "group": 445,
+    "paper_id": 445
+  },
+  {
+    "title": "Sunshine on Demand: The Neural Operator Chronicles",
+    "citations": 2,
+    "group": 446,
+    "paper_id": 446
+  },
+  {
+    "title": "Sharingan: The Eye That Sees Your Clicks",
+    "citations": 92,
+    "group": 447,
+    "paper_id": 447
+  },
+  {
+    "title": "The Trusty AI Builder: No Shady Business Here",
+    "citations": 4,
+    "group": 448,
+    "paper_id": 448
+  },
+  {
+    "title": "The Great Activity Showdown",
+    "citations": 15,
+    "group": 449,
+    "paper_id": 449
+  },
+  {
+    "title": "The Great Steering Vector Decoder Showdown",
+    "citations": 19,
+    "group": 450,
+    "paper_id": 450
+  },
+  {
+    "title": "Vote for the Lymphatics",
+    "citations": 5,
+    "group": 451,
+    "paper_id": 451
+  },
+  {
+    "title": "Generate, Query, Repeat: The SQL Chronicles",
+    "citations": 8,
+    "group": 452,
+    "paper_id": 452
+  },
+  {
+    "title": "Voting System for Lymphatics: No Ballots, Just Vessels",
+    "citations": 9,
+    "group": 453,
+    "paper_id": 453
+  },
+  {
+    "title": "Large Language Models Meet Their Match",
+    "citations": 8,
+    "group": 454,
+    "paper_id": 454
+  },
+  {
+    "title": "Visionary Autoregressive Antics",
+    "citations": 11,
+    "group": 455,
+    "paper_id": 455
+  },
+  {
+    "title": "Critique Me If You Can: The LLM Show",
+    "citations": 48,
+    "group": 456,
+    "paper_id": 456
+  },
+  {
+    "title": "Data Protection for Dummies",
+    "citations": 14,
+    "group": 457,
+    "paper_id": 457
+  },
+  {
+    "title": "Tracking Three Dimensional Objects with GRU Childrens Stories",
+    "citations": 6,
+    "group": 458,
+    "paper_id": 458
+  },
+  {
+    "title": "Reinforcement Learning for Pushy Robots",
+    "citations": 6,
+    "group": 459,
+    "paper_id": 459
+  },
+  {
+    "title": "Offline and Unbalanced: The Quest for Four-Legged Grace",
+    "citations": 14,
+    "group": 460,
+    "paper_id": 460
+  },
+  {
+    "title": "Sleuthing for the Ghosts of Programming Past",
+    "citations": 3,
+    "group": 461,
+    "paper_id": 461
+  },
+  {
+    "title": "Rater Raiders: The Search for Consistent Vessels",
+    "citations": 96,
+    "group": 462,
+    "paper_id": 462
+  },
+  {
+    "title": "R3HF: Reward Repackaging for Reinforcement Learning Shenanigans",
+    "citations": 81,
+    "group": 463,
+    "paper_id": 463
+  },
+  {
+    "title": "MultiScale Melodrama: A Musical Misadventure",
+    "citations": 17,
+    "group": 464,
+    "paper_id": 464
+  },
+  {
+    "title": "Dialogues About Dialogues: A Multimodal Misadventure",
+    "citations": 17,
+    "group": 465,
+    "paper_id": 465
+  },
+  {
+    "title": "Testing Interactions for Fun and Variations",
+    "citations": 8,
+    "group": 466,
+    "paper_id": 466
+  },
+  {
+    "title": "Netizens in Noodles: Affective Computing Gone Wild",
+    "citations": 10,
+    "group": 467,
+    "paper_id": 467
+  },
+  {
+    "title": "Evaluative AI: The Framework of Confusion",
+    "citations": 18,
+    "group": 468,
+    "paper_id": 468
+  },
+  {
+    "title": "PRIMO: People Reacting In Magnificent Oddities",
+    "citations": 9,
+    "group": 469,
+    "paper_id": 469
+  },
+  {
+    "title": "Lost and Found: The Robot Edition",
+    "citations": 19,
+    "group": 470,
+    "paper_id": 470
+  },
+  {
+    "title": "Multiple Languages Multiple Laughter in Training",
+    "citations": 8,
+    "group": 471,
+    "paper_id": 471
+  },
+  {
+    "title": "Hard Hats and Smart Chats: Engineering Safety with AI",
+    "citations": 9,
+    "group": 472,
+    "paper_id": 472
+  },
+  {
+    "title": "Separating Speakers and Laughs",
+    "citations": 5,
+    "group": 473,
+    "paper_id": 473
+  },
+  {
+    "title": "SAD-TIME: Turning Frowns into Data Points One Interval at a Time",
+    "citations": 4,
+    "group": 474,
+    "paper_id": 474
+  },
+  {
+    "title": "Heterogeneous Traffic and the Art of Machine Learning Wizardry",
+    "citations": 9,
+    "group": 475,
+    "paper_id": 475
+  },
+  {
+    "title": "Anomaly and the Big Language Model",
+    "citations": 7,
+    "group": 476,
+    "paper_id": 476
+  },
+  {
+    "title": "Log it Like its Hot",
+    "citations": 2,
+    "group": 477,
+    "paper_id": 477
+  },
+  {
+    "title": "Graphical Elements of Material Mischief",
+    "citations": 7,
+    "group": 478,
+    "paper_id": 478
+  },
+  {
+    "title": "Geometry Gone Wild with Graph Neural Networks",
+    "citations": 12,
+    "group": 479,
+    "paper_id": 479
+  },
+  {
+    "title": "GrainGain: Touchy Feely Science for Fun",
+    "citations": 2,
+    "group": 480,
+    "paper_id": 480
+  },
+  {
+    "title": "Fire Fiasco: The Great Model Showdown",
+    "citations": 19,
+    "group": 481,
+    "paper_id": 481
+  },
+  {
+    "title": "Language Models Gone Wild",
+    "citations": 3,
+    "group": 482,
+    "paper_id": 482
+  },
+  {
+    "title": "Fully Trainable Sandwich: The Science of Delicious Layers",
+    "citations": 13,
+    "group": 483,
+    "paper_id": 483
+  },
+  {
+    "title": "Expressive Extravaganza: The Perceiver's Playlist",
+    "citations": 8,
+    "group": 484,
+    "paper_id": 484
+  },
+  {
+    "title": "Causality or Classificativity The Image Dilemma",
+    "citations": 10,
+    "group": 485,
+    "paper_id": 485
+  },
+  {
+    "title": "Human Motion Magic and Mayhem",
+    "citations": 17,
+    "group": 486,
+    "paper_id": 486
+  },
+  {
+    "title": "SQLzer of Oz: The Wizard of Text-to-SQL",
+    "citations": 8,
+    "group": 487,
+    "paper_id": 487
+  },
+  {
+    "title": "R3HF: Reinforcement Redistribution for Hilariously Friendly AIs",
+    "citations": 15,
+    "group": 488,
+    "paper_id": 488
+  },
+  {
+    "title": "Picture This: A Comedic Take on Query Representation",
+    "citations": 15,
+    "group": 489,
+    "paper_id": 489
+  },
+  {
+    "title": "Lost in Translation: The Great Tongue Disconnection",
+    "citations": 16,
+    "group": 490,
+    "paper_id": 490
+  },
+  {
+    "title": "MVKTrans: The Great Omics Bake Off",
+    "citations": 16,
+    "group": 491,
+    "paper_id": 491
+  },
+  {
+    "title": "3D Object Hide and Seek: Kalman Filter Edition",
+    "citations": 13,
+    "group": 492,
+    "paper_id": 492
+  },
+  {
+    "title": "Temporal Tallying with RepNet and the Art of Video Counting",
+    "citations": 11,
+    "group": 493,
+    "paper_id": 493
+  },
+  {
+    "title": "Crystal Craze: The Material Mystery",
+    "citations": 4,
+    "group": 494,
+    "paper_id": 494
+  },
+  {
+    "title": "Rogue Route to Fine-Tuning Expert Mischief",
+    "citations": 2,
+    "group": 495,
+    "paper_id": 495
+  },
+  {
+    "title": "SQLy McSQLface",
+    "citations": 19,
+    "group": 496,
+    "paper_id": 496
+  },
+  {
+    "title": "Sharingan: The Eye That Sees Your Clicks",
+    "citations": 14,
+    "group": 497,
+    "paper_id": 497
+  },
+  {
+    "title": "GPTree Hugger A Tree with a Mind of Its Own",
+    "citations": 10,
+    "group": 498,
+    "paper_id": 498
+  },
+  {
+    "title": "The Unbiased Diaries of LLM-Enhanced Decision Making",
+    "citations": 2,
+    "group": 499,
+    "paper_id": 499
+  },
+  {
+    "title": "BAMAX: Bouncing Agents Make Awkward Xperiences",
+    "citations": 5,
+    "group": 500,
+    "paper_id": 500
+  },
+  {
+    "title": "Quantum Circuits and Neural Networks Walk into a Bar",
+    "citations": 7,
+    "group": 501,
+    "paper_id": 501
+  },
+  {
+    "title": "Get it Right or Re-Write",
+    "citations": 15,
+    "group": 502,
+    "paper_id": 502
+  },
+  {
+    "title": "AI So Transparent You Can See Through It",
+    "citations": 10,
+    "group": 503,
+    "paper_id": 503
+  },
+  {
+    "title": "Gaussian Splatting and the Quest for 4D Pizza",
+    "citations": 17,
+    "group": 504,
+    "paper_id": 504
+  },
+  {
+    "title": "Rock Solid Structure Shenanigans",
+    "citations": 2,
+    "group": 505,
+    "paper_id": 505
+  },
+  {
+    "title": "The Great Autoregressive Vision Escape",
+    "citations": 13,
+    "group": 506,
+    "paper_id": 506
+  },
+  {
+    "title": "How to Train Your Quadruped Without WiFi",
+    "citations": 15,
+    "group": 507,
+    "paper_id": 507
+  },
+  {
+    "title": "Structurally Sound and Functionally Funny",
+    "citations": 7,
+    "group": 508,
+    "paper_id": 508
+  },
+  {
+    "title": "Classroom Chatterbox 3000",
+    "citations": 10,
+    "group": 509,
+    "paper_id": 509
+  },
+  {
+    "title": "Understanding Needs or Just Picking Up Vibes",
+    "citations": 10,
+    "group": 510,
+    "paper_id": 510
+  },
+  {
+    "title": "Neural Networks Get a Quantum Makeover",
+    "citations": 14,
+    "group": 511,
+    "paper_id": 511
+  },
+  {
+    "title": "Adversarial Antics: Fooling Models One Word at a Time",
+    "citations": 12,
+    "group": 512,
+    "paper_id": 512
+  },
+  {
+    "title": "Data Defenders: LLMs Save the Conference Day",
+    "citations": 5,
+    "group": 513,
+    "paper_id": 513
+  },
+  {
+    "title": "Rank Orders and Roundabouts in the Voting Sphere",
+    "citations": 7,
+    "group": 514,
+    "paper_id": 514
+  },
+  {
+    "title": "World Models in Therapy: Making Decisions with LLMs",
+    "citations": 3,
+    "group": 515,
+    "paper_id": 515
+  },
+  {
+    "title": "Tactile Ninjas: The Art of Feeling Across Modalities",
+    "citations": 6,
+    "group": 516,
+    "paper_id": 516
+  },
+  {
+    "title": "LLM and the Art of CyberSec Comedy",
+    "citations": 10,
+    "group": 517,
+    "paper_id": 517
+  },
+  {
+    "title": "DPU The Dynamic Pudding Uncovering",
+    "citations": 2,
+    "group": 518,
+    "paper_id": 518
+  },
+  {
+    "title": "Video Countdowns: How RepNet Counts More Than Just Sheep",
+    "citations": 15,
+    "group": 519,
+    "paper_id": 519
+  },
+  {
+    "title": "Neural Chaos Re-Ranking",
+    "citations": 13,
+    "group": 520,
+    "paper_id": 520
+  },
+  {
+    "title": "Mapquest for Robots",
+    "citations": 6,
+    "group": 521,
+    "paper_id": 521
+  },
+  {
+    "title": "Majority Rules: Lymphatic Edition",
+    "citations": 15,
+    "group": 522,
+    "paper_id": 522
+  },
+  {
+    "title": "Brush Up on AI: The Dental Detective Chronicles",
+    "citations": 6,
+    "group": 523,
+    "paper_id": 523
+  },
+  {
+    "title": "Semi-Supervised Shenanigans with Kalman and His 3D Friends",
+    "citations": 9,
+    "group": 524,
+    "paper_id": 524
+  }
+]
