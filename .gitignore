@@ -6,10 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
-#datasets files
-*.gz
-*.pt
-*.csv
+# C++
+*.sln
+*.json
 
 # Distribution / packaging
 .Python
@@ -165,7 +164,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 /Yandex/internship_ml_autumn_winter_2024/F. Произведения электронного искусства/best_pictures/
-/Yandex/internship_ml_autumn_winter_2024/F. Произведения электронного искусства/best_pictures.tar.gz
 /SPBU olympics Petropolitan Science (Re)Search/2024-2025/task1/.vs/task1/v17/.wsuo
 /SPBU olympics Petropolitan Science (Re)Search/2024-2025/task1/.vs/task1/FileContentIndex/0a4d50d0-3659-4201-b08f-c86693defc97.vsidx
 /SPBU olympics Petropolitan Science (Re)Search/2024-2025/task1/.vs/task1/FileContentIndex/9b48b3b8-6cb8-4ead-98c1-4e9810234d1b.vsidx
