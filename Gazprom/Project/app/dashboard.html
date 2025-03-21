@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дашборд установок</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .dashboard {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      height: 400px;
+      margin: 20px;
+    }
+    .column {
+      width: 12%;
+      text-align: center;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: background-color 0.5s;
+    }
+    .column.green {
+      background-color: #90ee90;
+    }
+    .column.red {
+      background-color: #ffcccb;
+    }
+    .sensor-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Мониторинг установок</h1>
+  <div class="dashboard" id="dashboard">
+    <!-- Колонки для установки будут загружаться сюда -->
+  </div>
+
+  <script>
+    const sensors = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10"];
+
+    function updateDashboard(predictions) {
+      const dashboard = document.getElementById("dashboard");
+      dashboard.innerHTML = "";  // Очищаем текущий контент
+
+      sensors.forEach(sensor => {
+        const prob = predictions[sensor] !== undefined ? predictions[sensor].probability : 0;
+        const timestamp = predictions[sensor] !== undefined ? predictions[sensor].timestamp : "Нет данных";
+
+        const col = document.createElement("div");
+        col.className = "column " + (prob < 0.7 ? "green" : "red");
+
+        col.innerHTML = `
+          <h2>${sensor}</h2>
+          <p>${(prob * 100).toFixed(1)}%</p>
+          <div class="sensor-info">
+            <p>Время: ${timestamp}</p>
+          </div>
+        `;
+
+        dashboard.appendChild(col);
+      });
+    }
+
+    async function fetchPredictions() {
+      try {
+        const res = await fetch("/predictions");
+        const data = await res.json();
+        updateDashboard(data);
+      } catch (error) {
+        console.error("Ошибка получения предсказаний:", error);
+      }
+    }
+
+    setInterval(fetchPredictions, 1000);
+    fetchPredictions();
+  </script>
+</body>
+</html>

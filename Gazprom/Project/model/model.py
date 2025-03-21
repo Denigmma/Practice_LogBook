@@ -2,326 +2,238 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import tensorflow as tf
-from tensorflow.keras import layers, models
+from tensorflow.keras import layers, models, callbacks
+import time
+import psutil
+import os
 
-# 1. Функция для вычисления метки отказа на основе комплексных условий
-def failure_condition(row):
-    """
-    Определяет отказ установки по комплексным условиям:
-    - Утечка: низкое давление (<6.0) и высокий расход (>280.0)
-    - Механическая проблема: высокая вибрация (>0.09) и давление (<6.5)
-    - Блокировка/перегруз: высокое давление (>9.5) и низкий расход (<120.0)
-    - Комбинированное отклонение: давление вне нормы (менее 6.2 или более 9.3) и аномалии по вибрации (>0.08) или расходу (>270.0)
-    """
-    cond1 = (row['pressure'] < 6.0) and (row['flow_rate'] > 280.0)
-    cond2 = (row['vibration'] > 0.09) and (row['pressure'] < 6.5)
-    cond3 = (row['pressure'] > 9.5) and (row['flow_rate'] < 120.0)
-    cond4 = ((row['pressure'] < 6.2) or (row['pressure'] > 9.3)) and ((row['vibration'] > 0.08) or (row['flow_rate'] > 270.0))
-    return int(cond1 or cond2 or cond3 or cond4)
 
-# 2. Функция для формирования последовательностей
+def failure_condition(seq, pressure_threshold=9.0, vibration_threshold=0.08, growth_window=5,
+                      pressure_growth_percent=0.2):
+    """
+    Определяет отказ установки по комплексным условиям, анализируя всю последовательность seq (длиной seq_len).
+
+    Сценарии отказа:
+      1) Сильный рост давления за всю последовательность: (P_end - P_start) / P_start > pressure_growth_percent.
+      2) Непрерывный рост температуры в последних growth_window наблюдениях при том, что давление постоянно выше 9.5.
+      3) За последние growth_window шагов давление постоянно выше pressure_threshold, а расход падает (flow_rate на последнем шаге меньше, чем на первом).
+      4) За последние growth_window шагов вибрация превышает vibration_threshold и температура непрерывно растёт.
+      5) Дополнительные сценарии (утечка, механическая проблема, блокировка/перегруз), но без тривиального условия "pressure > 10.0".
+
+    Параметры:
+      seq                    : pandas.DataFrame длиной seq_len с колонками pressure, temperature, vibration, flow_rate и др.
+      pressure_threshold     : порог давления для проверки уменьшения расхода (по умолчанию 9.0)
+      vibration_threshold    : порог вибрации для проверки (по умолчанию 0.08)
+      growth_window          : число последних шагов для проверки непрерывного роста признаков (по умолчанию 5)
+      pressure_growth_percent: процентный рост давления за всю последовательность, выше которого считается отказ (по умолчанию 20%)
+
+    Возвращает 1, если обнаружен сценарий отказа, иначе 0.
+    """
+    p_start = seq.iloc[0]['pressure']
+    p_end = seq.iloc[-1]['pressure']
+    pressure_growth_ratio = (p_end - p_start) / max(p_start, 0.00001)
+    cond_pressure_growth = (pressure_growth_ratio > pressure_growth_percent)
+
+    last_window = seq.iloc[-growth_window:] if len(seq) >= growth_window else seq
+    cond_temp_rise = True
+    for i in range(len(last_window) - 1):
+        if last_window.iloc[i + 1]['temperature'] <= last_window.iloc[i]['temperature']:
+            cond_temp_rise = False
+            break
+    cond_pressure_high = (last_window['pressure'] > 9.5).all()
+    cond_temp_and_high_pressure = cond_temp_rise and cond_pressure_high
+
+    cond_pressure_high_window = (last_window['pressure'] > pressure_threshold).all()
+    cond_flow_down = False
+    if cond_pressure_high_window and len(last_window) > 1:
+        flow_start = last_window.iloc[0]['flow_rate']
+        flow_end = last_window.iloc[-1]['flow_rate']
+        cond_flow_down = (flow_end < flow_start)
+    cond_pressure_flow = cond_pressure_high_window and cond_flow_down
+
+    cond_vibration_high = (last_window['vibration'] > vibration_threshold).all()
+    cond_temp_rise_for_vib = True
+    for i in range(len(last_window) - 1):
+        if last_window.iloc[i + 1]['temperature'] <= last_window.iloc[i]['temperature']:
+            cond_temp_rise_for_vib = False
+            break
+    cond_vibration_and_temp = cond_vibration_high and cond_temp_rise_for_vib
+
+    row_last = seq.iloc[-1]
+    cond_old_1 = (row_last['pressure'] < 6.0) and (row_last['flow_rate'] > 280.0)
+    cond_old_2 = (row_last['vibration'] > 0.09) and (row_last['pressure'] < 6.5)
+    cond_old_3 = (row_last['pressure'] > 9.5) and (row_last['flow_rate'] < 120.0)
+    cond_old_4 = ((row_last['pressure'] < 6.2) or (row_last['pressure'] > 9.3)) and (
+                (row_last['vibration'] > 0.08) or (row_last['flow_rate'] > 270.0))
+
+    failure_flag = (cond_pressure_growth or
+                    cond_temp_and_high_pressure or
+                    cond_pressure_flow or
+                    cond_vibration_and_temp or
+                    cond_old_1 or cond_old_2 or cond_old_3 or cond_old_4)
+    return int(failure_flag)
+
+
 def create_sequences(data, seq_len=20):
     """
-    Формирует последовательности данных и метки для каждой последовательности.
-    Используем признаки: segment_code, pressure, temperature, vibration, flow_rate.
-    Нормализация производится согласно диапазонам.
+    Формирует последовательности данных (X) и метки (y), анализируя временные ряды для каждой установки.
+    Для формирования метки передаётся вся последовательность в функцию failure_condition.
     """
     X, y = [], []
-    # Группируем данные по установкам (segment_code)
     for segment, group in data.groupby('segment_code'):
         group = group.sort_values('timestamp').reset_index(drop=True)
         for i in range(len(group) - seq_len + 1):
-            seq = group.iloc[i:i+seq_len]
-            label = failure_condition(seq.iloc[-1])
-            features = seq[['segment_code', 'pressure', 'temperature', 'vibration', 'flow_rate']].values.astype(np.float32)
-            # Нормализация:
-            # segment_code: [1, 10] → [0, 1]
+            seq = group.iloc[i:i + seq_len]
+            label = failure_condition(seq)
+            features = seq[['segment_code', 'pressure', 'temperature', 'vibration', 'flow_rate']].values.astype(
+                np.float32)
             features[:, 0] = (features[:, 0] - 1) / 9.0
-            # pressure: [5.0, 10.0] → [0, 1]
             features[:, 1] = (features[:, 1] - 5.0) / 5.0
-            # temperature: [15.0, 30.0] → [0, 1]
             features[:, 2] = (features[:, 2] - 15.0) / 15.0
-            # vibration: [0.02, 0.1] → [0, 1]
             features[:, 3] = (features[:, 3] - 0.02) / (0.1 - 0.02)
-            # flow_rate: [100, 300] → [0, 1]
             features[:, 4] = (features[:, 4] - 100.0) / 200.0
             X.append(features)
             y.append(label)
     return np.array(X), np.array(y)
 
-# 3. Загрузка и подготовка данных
-# Загрузка обучающего набора
+
+def build_model(seq_length, num_features, num_layers=2, neurons=[64, 32], dropout_rate=0.2):
+    """
+    Создаёт модель на базе GRU для бинарной классификации (отказ/без отказа).
+    """
+    model = models.Sequential()
+    model.add(layers.GRU(neurons[0], return_sequences=(num_layers > 1), input_shape=(seq_length, num_features)))
+    model.add(layers.Dropout(dropout_rate))
+    for i in range(1, num_layers):
+        return_seq = (i < num_layers - 1)
+        model.add(layers.GRU(neurons[i], return_sequences=return_seq))
+        model.add(layers.Dropout(dropout_rate))
+    model.add(layers.Dense(1, activation='sigmoid'))
+    return model
+
+
 train_df = pd.read_csv("../data/sensor_train_data.csv")
 train_df['timestamp'] = pd.to_datetime(train_df['timestamp'])
 train_df['segment_code'] = train_df['segment_id'].apply(lambda x: int(x[1:]))
-X_train, y_train = create_sequences(train_df, seq_len=20)
 
-# Загрузка валидационного набора
 val_df = pd.read_csv("../data/sensor_val_data.csv")
 val_df['timestamp'] = pd.to_datetime(val_df['timestamp'])
 val_df['segment_code'] = val_df['segment_id'].apply(lambda x: int(x[1:]))
-X_val, y_val = create_sequences(val_df, seq_len=20)
+
+seq_length = 20
+X_train, y_train = create_sequences(train_df, seq_len=seq_length)
+X_val, y_val = create_sequences(val_df, seq_len=seq_length)
 
 print("Training set shape:", X_train.shape, y_train.shape)
 print("Validation set shape:", X_val.shape, y_val.shape)
 
-# 4. Функция для построения модели с возможностью настройки гиперпараметров
-def build_model(seq_length, num_features, num_layers=2, neurons=[64, 32], dropout_rate=0.2):
-    model = models.Sequential()
-    # Первый слой GRU с указанием input_shape
-    model.add(layers.GRU(neurons[0], return_sequences=(num_layers > 1), input_shape=(seq_length, num_features)))
-    model.add(layers.Dropout(dropout_rate))
-    # Добавляем дополнительные слои GRU (если заданы)
-    for i in range(1, num_layers):
-        # Если не последний слой, возвращаем последовательность
-        return_seq = (i < num_layers - 1)
-        model.add(layers.GRU(neurons[i], return_sequences=return_seq))
-        model.add(layers.Dropout(dropout_rate))
-    # Выходной слой
-    model.add(layers.Dense(1, activation='sigmoid'))
-    return model
-
-# Гиперпараметры модели
-seq_length = 20      # Длина последовательности
-num_features = 5     # segment_code, pressure, temperature, vibration, flow_rate
+num_features = 5
 num_layers = 2
 neurons = [64, 32]
 dropout_rate = 0.2
+EPOCHS = 30
+BATCH_SIZE = 32
 
-# Создаем модель
 model = build_model(seq_length, num_features, num_layers=num_layers, neurons=neurons, dropout_rate=dropout_rate)
-
-# Компиляция модели: функция потерь, оптимизатор, метрики
+loss_function = 'binary_crossentropy'
+metrics_list = ['accuracy', tf.keras.metrics.AUC(name='auc')]
 model.compile(
     optimizer='adam',
-    loss='binary_crossentropy',
-    metrics=['accuracy', tf.keras.metrics.AUC(name='auc')]
+    loss=loss_function,
+    metrics=metrics_list
 )
 
 model.summary()
 
-# 5. Обучение модели без ранней остановки
+
+class MetricsLogger(callbacks.Callback):
+    """
+    Колбэк для записи метрик обучения и валидации по эпохам в CSV-файл.
+    """
+
+    def __init__(self, log_file):
+        super(MetricsLogger, self).__init__()
+        self.log_file = log_file
+        with open(self.log_file, 'w') as f:
+            f.write("epoch,loss,accuracy,auc,val_loss,val_accuracy,val_auc\n")
+
+    def on_epoch_end(self, epoch, logs=None):
+        logs = logs or {}
+        with open(self.log_file, 'a') as f:
+            f.write(f"{epoch + 1},{logs.get('loss'):.4f},{logs.get('accuracy'):.4f},{logs.get('auc'):.4f},"
+                    f"{logs.get('val_loss'):.4f},{logs.get('val_accuracy'):.4f},{logs.get('val_auc'):.4f}\n")
+
+
+metrics_logger = MetricsLogger("logs/training_log.txt")
+
+train_eval_before = model.evaluate(X_train, y_train, verbose=0)
+val_eval_before = model.evaluate(X_val, y_val, verbose=0)
+print("\nBaseline evaluation:")
+print(
+    f"Training: loss = {train_eval_before[0]:.4f}, accuracy = {train_eval_before[1]:.4f}, auc = {train_eval_before[2]:.4f}")
+print(
+    f"Validation: loss = {val_eval_before[0]:.4f}, accuracy = {val_eval_before[1]:.4f}, auc = {val_eval_before[2]:.4f}")
+
+start_time = time.time()
+process = psutil.Process(os.getpid())
+
 history = model.fit(
     X_train, y_train,
-    epochs=20,
-    batch_size=32,
-    validation_data=(X_val, y_val)
+    epochs=EPOCHS,
+    batch_size=BATCH_SIZE,
+    validation_data=(X_val, y_val),
+    callbacks=[metrics_logger]
 )
 
+end_time = time.time()
+training_time = end_time - start_time
+memory_used = process.memory_info().rss / (1024 * 1024)
 
-# Сохранение обученной модели
-model.save('gru_model.h5')
+model.save('saved_models/gru_model.h5')
 print("\nМодель сохранена в файл 'gru_model.h5'")
 
-# Оценка модели после загрузки
-loaded_model = tf.keras.models.load_model('gru_model.h5')
+loaded_model = tf.keras.models.load_model('saved_models/gru_model.h5')
 print("\nЗагруженная модель успешно восстановлена.")
 
-# Проверяем её на валидационном наборе
-val_eval = loaded_model.evaluate(X_val, y_val, verbose=0)
-print("\nОценка загруженной модели на валидации:")
-print(f"loss = {val_eval[0]:.4f}, accuracy = {val_eval[1]:.4f}, auc = {val_eval[2]:.4f}")
+train_eval_after = loaded_model.evaluate(X_train, y_train, verbose=0)
+val_eval_after = loaded_model.evaluate(X_val, y_val, verbose=0)
 
+print("\nFinal evaluation:")
+print(
+    f"Training: loss = {train_eval_after[0]:.4f}, accuracy = {train_eval_after[1]:.4f}, auc = {train_eval_after[2]:.4f}")
+print(f"Validation: loss = {val_eval_after[0]:.4f}, accuracy = {val_eval_after[1]:.4f}, auc = {val_eval_after[2]:.4f}")
 
+with open("logs/total_log.txt", "w") as log_file:
+    log_file.write("Type: GRU-based RNN (Sequential model)\n")
+    log_file.write(f"Count layers: {num_layers}\n")
+    log_file.write(f"Count neurons: {neurons}\n")
+    log_file.write(f"Loss function: {loss_function}\n")
+    log_file.write(f"Count epochs: {EPOCHS}\n")
+    log_file.write("Metrics: " + ", ".join([str(m) for m in metrics_list]) + "\n")
+    log_file.write(f"Memory used during training: {memory_used:.2f} MB\n")
+    log_file.write(f"Total training time: {training_time:.2f} seconds\n")
+    log_file.write("\nBaseline metrics:\n")
+    log_file.write(f"Loss before training (Train): {train_eval_before[0]:.4f}\n")
+    log_file.write(f"Loss before training (Validation): {val_eval_before[0]:.4f}\n")
+    log_file.write("\nFinal metrics:\n")
+    log_file.write(f"Loss after training (Train): {train_eval_after[0]:.4f}\n")
+    log_file.write(f"Loss after training (Validation): {val_eval_after[0]:.4f}\n")
+    log_file.write(
+        f"Training metrics: loss = {train_eval_after[0]:.4f}, accuracy = {train_eval_after[1]:.4f}, auc = {train_eval_after[2]:.4f}\n")
+    log_file.write(
+        f"Validation metrics: loss = {val_eval_after[0]:.4f}, accuracy = {val_eval_after[1]:.4f}, auc = {val_eval_after[2]:.4f}\n")
 
-# 6. Вывод результатов обучения: метрики и лосс функции
 print("\nИстория обучения:")
 for epoch in range(len(history.history['loss'])):
-    print(f"Эпоха {epoch+1:2d}: loss = {history.history['loss'][epoch]:.4f}, "
+    print(f"Эпоха {epoch + 1:2d}: loss = {history.history['loss'][epoch]:.4f}, "
           f"accuracy = {history.history['accuracy'][epoch]:.4f}, auc = {history.history['auc'][epoch]:.4f} | "
           f"val_loss = {history.history['val_loss'][epoch]:.4f}, "
-          f"val_accuracy = {history.history['val_accuracy'][epoch]:.4f}, val_auc = {history.history['val_auc'][epoch]:.4f}")
+          f"val_accuracy = {history.history['val_accuracy'][epoch]:.4f}, "
+          f"val_auc = {history.history['val_auc'][epoch]:.4f}")
 
-# 7. Оценка модели на обучающем и валидационном наборе
-train_eval = model.evaluate(X_train, y_train, verbose=0)
-val_eval = model.evaluate(X_val, y_val, verbose=0)
+train_eval_final = model.evaluate(X_train, y_train, verbose=0)
+val_eval_final = model.evaluate(X_val, y_val, verbose=0)
 print("\nОценка на обучающем наборе:")
-print(f"loss = {train_eval[0]:.4f}, accuracy = {train_eval[1]:.4f}, auc = {train_eval[2]:.4f}")
+print(f"loss = {train_eval_final[0]:.4f}, accuracy = {train_eval_final[1]:.4f}, auc = {train_eval_final[2]:.4f}")
 print("\nОценка на валидационном наборе:")
-print(f"loss = {val_eval[0]:.4f}, accuracy = {val_eval[1]:.4f}, auc = {val_eval[2]:.4f}")
-
-
-
-
-
-# import os
-# import pandas as pd
-# import numpy as np
-# import torch
-# import torch.nn as nn
-# import torch.optim as optim
-# from torch.utils.data import Dataset, DataLoader
-# from datetime import datetime
-#
-#
-# # 1. Функция для вычисления метки отказа на основе комплексных условий
-# def failure_condition(row):
-#     # row – строка с необработанными (сырыми) значениями показателей
-#     # Условие 1: утечка (низкое давление и высокий расход)
-#     cond1 = (row['pressure'] < 6.0) and (row['flow_rate'] > 280.0)
-#     # Условие 2: механическая проблема (высокая вибрация и снижение давления)
-#     cond2 = (row['vibration'] > 0.09) and (row['pressure'] < 6.5)
-#     # Условие 3: блокировка или перегруз (высокое давление и низкий расход)
-#     cond3 = (row['pressure'] > 9.5) and (row['flow_rate'] < 120.0)
-#     # Условие 4: комбинированное отклонение: давление вне нормы и аномалии по вибрации или расходу
-#     cond4 = ((row['pressure'] < 6.2) or (row['pressure'] > 9.3)) and (
-#                 (row['vibration'] > 0.08) or (row['flow_rate'] > 270.0))
-#     return int(cond1 or cond2 or cond3 or cond4)
-#
-#
-# # 2. Определение кастомного датасета для формирования последовательностей
-# class SensorDataset(Dataset):
-#     def __init__(self, csv_file, seq_len=20):
-#         """
-#         csv_file: путь к CSV-файлу (например, data/sensor_train.csv)
-#         seq_len: длина последовательности (например, 20 секунд)
-#         """
-#         self.seq_len = seq_len
-#         self.data = pd.read_csv(csv_file)
-#
-#         # Преобразуем timestamp в datetime для сортировки
-#         self.data['timestamp'] = pd.to_datetime(self.data['timestamp'])
-#         # Преобразуем segment_id в числовой код: A1 -> 1, A2 -> 2, ... A10 -> 10
-#         self.data['segment_code'] = self.data['segment_id'].apply(lambda x: int(x[1:]))
-#
-#         # Сортируем по установке и времени
-#         self.data.sort_values(['segment_code', 'timestamp'], inplace=True)
-#
-#         # Формируем последовательности и вычисляем метки (на основе последнего измерения последовательности)
-#         self.sequences = []
-#         self.labels = []
-#         # Группируем по установкам
-#         grouped = self.data.groupby('segment_code')
-#         for seg, group in grouped:
-#             group = group.reset_index(drop=True)
-#             for i in range(len(group) - seq_len + 1):
-#                 seq = group.iloc[i:i + seq_len]
-#                 # Вычисляем метку отказа для последней строки последовательности
-#                 label = failure_condition(seq.iloc[-1])
-#                 self.sequences.append(seq)
-#                 self.labels.append(label)
-#
-#     def __len__(self):
-#         return len(self.sequences)
-#
-#     def __getitem__(self, idx):
-#         seq = self.sequences[idx]
-#         # Извлекаем нужные признаки: segment_code, pressure, temperature, vibration, flow_rate
-#         # Приводим значения к float32
-#         features = seq[['segment_code', 'pressure', 'temperature', 'vibration', 'flow_rate']].values.astype(np.float32)
-#
-#         # Нормализация признаков по известным диапазонам:
-#         # segment_code: [1, 10] → [0, 1]
-#         features[:, 0] = (features[:, 0] - 1) / 9.0
-#         # pressure: [5.0, 10.0] → [0, 1]
-#         features[:, 1] = (features[:, 1] - 5.0) / 5.0
-#         # temperature: [15.0, 30.0] → [0, 1]
-#         features[:, 2] = (features[:, 2] - 15.0) / 15.0
-#         # vibration: [0.02, 0.1] → [0, 1]
-#         features[:, 3] = (features[:, 3] - 0.02) / (0.1 - 0.02)
-#         # flow_rate: [100, 300] → [0, 1]
-#         features[:, 4] = (features[:, 4] - 100.0) / 200.0
-#
-#         # Преобразуем в тензор
-#         features = torch.tensor(features)
-#         label = torch.tensor(self.labels[idx], dtype=torch.float32)
-#         return features, label
-#
-#
-# # 3. Определение GRU-модели (на основе PyTorch)
-# class GRUModel(nn.Module):
-#     def __init__(self, input_size, hidden_size, num_layers, output_size, dropout=0.2):
-#         super(GRUModel, self).__init__()
-#         self.gru = nn.GRU(input_size, hidden_size, num_layers, batch_first=True, dropout=dropout)
-#         self.fc = nn.Linear(hidden_size, output_size)
-#         self.sigmoid = nn.Sigmoid()
-#
-#     def forward(self, x):
-#         # x имеет форму: [batch_size, seq_len, input_size]
-#         out, _ = self.gru(x)  # out имеет форму [batch_size, seq_len, hidden_size]
-#         # Берём выход последнего временного шага
-#         out = out[:, -1, :]  # [batch_size, hidden_size]
-#         out = self.fc(out)  # [batch_size, output_size]
-#         out = self.sigmoid(out)
-#         return out
-#
-#
-# # 4. Гиперпараметры и настройки обучения
-# SEQ_LEN = 20
-# INPUT_SIZE = 5  # segment_code, pressure, temperature, vibration, flow_rate
-# HIDDEN_SIZE = 64
-# NUM_LAYERS = 2
-# OUTPUT_SIZE = 1
-# DROPOUT = 0.2
-# LEARNING_RATE = 0.001
-# BATCH_SIZE = 32
-# NUM_EPOCHS = 10
-#
-# # Пути к данным
-# TRAIN_CSV = "../data/sensor_train_data.csv"
-# VAL_CSV = "../data/sensor_val_data.csv"
-#
-# # Создаём датасеты и DataLoader'ы
-# train_dataset = SensorDataset(TRAIN_CSV, seq_len=SEQ_LEN)
-# val_dataset = SensorDataset(VAL_CSV, seq_len=SEQ_LEN)
-# train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
-# val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
-#
-# # Инициализируем модель, функцию потерь и оптимизатор
-# model = GRUModel(INPUT_SIZE, HIDDEN_SIZE, NUM_LAYERS, OUTPUT_SIZE, DROPOUT)
-# criterion = nn.BCELoss()
-# optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
-#
-#
-# # 5. Функция для вычисления точности (threshold 0.5)
-# def accuracy(predictions, labels):
-#     preds = (predictions >= 0.5).float()
-#     return (preds == labels.unsqueeze(1)).float().mean().item()
-#
-#
-# # 6. Обучающий цикл
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# model.to(device)
-#
-# for epoch in range(1, NUM_EPOCHS + 1):
-#     model.train()
-#     train_loss = 0.0
-#     train_acc = 0.0
-#     for inputs, labels in train_loader:
-#         inputs, labels = inputs.to(device), labels.to(device)
-#         optimizer.zero_grad()
-#         outputs = model(inputs)
-#         loss = criterion(outputs, labels.unsqueeze(1))
-#         loss.backward()
-#         optimizer.step()
-#
-#         train_loss += loss.item() * inputs.size(0)
-#         train_acc += accuracy(outputs, labels) * inputs.size(0)
-#
-#     train_loss /= len(train_dataset)
-#     train_acc /= len(train_dataset)
-#
-#     # Валидация
-#     model.eval()
-#     val_loss = 0.0
-#     val_acc = 0.0
-#     with torch.no_grad():
-#         for inputs, labels in val_loader:
-#             inputs, labels = inputs.to(device), labels.to(device)
-#             outputs = model(inputs)
-#             loss = criterion(outputs, labels.unsqueeze(1))
-#             val_loss += loss.item() * inputs.size(0)
-#             val_acc += accuracy(outputs, labels) * inputs.size(0)
-#
-#     val_loss /= len(val_dataset)
-#     val_acc /= len(val_dataset)
-#
-#     print(f"Epoch {epoch}/{NUM_EPOCHS}: "
-#           f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f} | "
-#           f"Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f}")
-#
-# # Сохраняем обученную модель
-# os.makedirs("saved_models", exist_ok=True)
-# MODEL_PATH = "saved_models/gru_model.pt"
-# torch.save(model.state_dict(), MODEL_PATH)
-# print(f"Модель сохранена в {MODEL_PATH}")
+print(f"loss = {val_eval_final[0]:.4f}, accuracy = {val_eval_final[1]:.4f}, auc = {val_eval_final[2]:.4f}")

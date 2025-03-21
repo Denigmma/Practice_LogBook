@@ -1,0 +1,18 @@
+Type: GRU-based RNN (Sequential model)
+Count layers: 2
+Count neurons: [64, 32]
+Loss function: binary_crossentropy
+Count epochs: 30
+Metrics: accuracy, <AUC name=auc>
+Memory used during training: 481.40 MB
+Total training time: 52.35 seconds
+
+Baseline metrics:
+Loss before training (Train): 0.7590
+Loss before training (Validation): 0.7918
+
+Final metrics:
+Loss after training (Train): 0.1890
+Loss after training (Validation): 0.3273
+Training metrics: loss = 0.1890, accuracy = 0.9119, auc = 0.9763
+Validation metrics: loss = 0.3273, accuracy = 0.8759, auc = 0.9454
