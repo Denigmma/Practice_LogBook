@@ -6,7 +6,7 @@ def load_model(model_path: str):
     """
     Загружает модель из указанного пути.
     """
-    model = tf.keras.models.load_model(model_path)
+    model = tf.keras.models.load_model(model_path, compile=False)
     return model
 
 

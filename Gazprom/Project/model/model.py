@@ -1,11 +1,21 @@
 import pandas as pd
 import numpy as np
-from datetime import datetime
 import tensorflow as tf
 from tensorflow.keras import layers, models, callbacks
 import time
 import psutil
 import os
+
+
+seed = 42
+np.random.seed(seed)
+tf.random.set_seed(seed)
+
+import multiprocessing
+tf.config.optimizer.set_jit(True)
+max_threads = multiprocessing.cpu_count()
+tf.config.threading.set_intra_op_parallelism_threads(max_threads)
+tf.config.threading.set_inter_op_parallelism_threads(max_threads)
 
 
 def failure_condition(seq, pressure_threshold=9.0, vibration_threshold=0.08, growth_window=5,
@@ -97,7 +107,7 @@ def create_sequences(data, seq_len=20):
     return np.array(X), np.array(y)
 
 
-def build_model(seq_length, num_features, num_layers=2, neurons=[64, 32], dropout_rate=0.2):
+def build_model(seq_length, num_features, num_layers, neurons, dropout_rate):
     """
     Создаёт модель на базе GRU для бинарной классификации (отказ/без отказа).
     """
@@ -127,16 +137,48 @@ X_val, y_val = create_sequences(val_df, seq_len=seq_length)
 print("Training set shape:", X_train.shape, y_train.shape)
 print("Validation set shape:", X_val.shape, y_val.shape)
 
+
+def focal_loss(alpha=0.25, gamma=2.0):
+    """
+    Реализация Focal Loss для бинарной классификации.
+
+    Аргументы:
+      alpha: балансирующий параметр для положительного класса.
+      gamma: параметр фокусировки, уменьшающий вклад легко классифицируемых примеров.
+
+    Возвращает:
+      Функцию потерь, которую можно передать в model.compile.
+    """
+
+    def focal_loss_fixed(y_true, y_pred):
+        # Приведение y_true к типу float32
+        y_true = tf.cast(y_true, tf.float32)
+        # Избегаем log(0)
+        epsilon = 1e-7
+        y_pred = tf.clip_by_value(y_pred, epsilon, 1.0 - epsilon)
+        # Определяем вероятность для истинного класса:
+        # Если y_true==1, p_t = y_pred, иначе p_t = 1-y_pred
+        p_t = tf.where(tf.equal(y_true, 1), y_pred, 1 - y_pred)
+        # Вычисляем focal loss по формуле: -alpha*(1-p_t)^gamma * log(p_t)
+        loss = -alpha * tf.pow(1 - p_t, gamma) * tf.math.log(p_t)
+        return tf.reduce_mean(loss)
+
+    return focal_loss_fixed
+
+
 num_features = 5
 num_layers = 2
 neurons = [64, 32]
 dropout_rate = 0.2
-EPOCHS = 30
+EPOCHS = 50
 BATCH_SIZE = 32
 
 model = build_model(seq_length, num_features, num_layers=num_layers, neurons=neurons, dropout_rate=dropout_rate)
-loss_function = 'binary_crossentropy'
-metrics_list = ['accuracy', tf.keras.metrics.AUC(name='auc')]
+
+# Focal Loss:
+loss_function = focal_loss(alpha=0.25, gamma=2.0)
+
+metrics_list = ['accuracy', tf.keras.metrics.AUC(name='auc'), tf.keras.metrics.Precision(name='precision'), tf.keras.metrics.Recall(name='recall')]
 model.compile(
     optimizer='adam',
     loss=loss_function,
@@ -155,16 +197,19 @@ class MetricsLogger(callbacks.Callback):
         super(MetricsLogger, self).__init__()
         self.log_file = log_file
         with open(self.log_file, 'w') as f:
-            f.write("epoch,loss,accuracy,auc,val_loss,val_accuracy,val_auc\n")
-
+            f.write("epoch,loss,accuracy,auc,precision,recall,"
+                    "val_loss,val_accuracy,val_auc,val_precision,val_recall\n")
     def on_epoch_end(self, epoch, logs=None):
         logs = logs or {}
         with open(self.log_file, 'a') as f:
-            f.write(f"{epoch + 1},{logs.get('loss'):.4f},{logs.get('accuracy'):.4f},{logs.get('auc'):.4f},"
-                    f"{logs.get('val_loss'):.4f},{logs.get('val_accuracy'):.4f},{logs.get('val_auc'):.4f}\n")
+            f.write(f"{epoch + 1},"
+                    f"{logs.get('loss'):.4f},{logs.get('accuracy'):.4f},{logs.get('auc'):.4f},"
+                    f"{logs.get('precision'):.4f},{logs.get('recall'):.4f},"
+                    f"{logs.get('val_loss'):.4f},{logs.get('val_accuracy'):.4f},{logs.get('val_auc'):.4f},"
+                    f"{logs.get('val_precision'):.4f},{logs.get('val_recall'):.4f}\n")
 
 
-metrics_logger = MetricsLogger("logs/training_log.txt")
+metrics_logger = MetricsLogger("logs/training_log.csv")
 
 train_eval_before = model.evaluate(X_train, y_train, verbose=0)
 val_eval_before = model.evaluate(X_val, y_val, verbose=0)
@@ -192,7 +237,10 @@ memory_used = process.memory_info().rss / (1024 * 1024)
 model.save('saved_models/gru_model.h5')
 print("\nМодель сохранена в файл 'gru_model.h5'")
 
-loaded_model = tf.keras.models.load_model('saved_models/gru_model.h5')
+
+
+
+loaded_model = tf.keras.models.load_model('saved_models/gru_model.h5', custom_objects={'focal_loss_fixed': focal_loss(alpha=0.25, gamma=2.0)})
 print("\nЗагруженная модель успешно восстановлена.")
 
 train_eval_after = loaded_model.evaluate(X_train, y_train, verbose=0)
@@ -218,18 +266,18 @@ with open("logs/total_log.txt", "w") as log_file:
     log_file.write("\nFinal metrics:\n")
     log_file.write(f"Loss after training (Train): {train_eval_after[0]:.4f}\n")
     log_file.write(f"Loss after training (Validation): {val_eval_after[0]:.4f}\n")
-    log_file.write(
-        f"Training metrics: loss = {train_eval_after[0]:.4f}, accuracy = {train_eval_after[1]:.4f}, auc = {train_eval_after[2]:.4f}\n")
-    log_file.write(
-        f"Validation metrics: loss = {val_eval_after[0]:.4f}, accuracy = {val_eval_after[1]:.4f}, auc = {val_eval_after[2]:.4f}\n")
+    log_file.write(f"Training metrics: loss = {train_eval_after[0]:.4f}, accuracy = {train_eval_after[1]:.4f}, auc = {train_eval_after[2]:.4f}, precision = {train_eval_after[3]:.4f}, recall = {train_eval_after[4]:.4f}\n")
+    log_file.write(f"Validation metrics: loss = {val_eval_after[0]:.4f}, accuracy = {val_eval_after[1]:.4f}, auc = {val_eval_after[2]:.4f}, precision = {val_eval_after[3]:.4f}, recall = {val_eval_after[4]:.4f}\n")
 
 print("\nИстория обучения:")
 for epoch in range(len(history.history['loss'])):
     print(f"Эпоха {epoch + 1:2d}: loss = {history.history['loss'][epoch]:.4f}, "
-          f"accuracy = {history.history['accuracy'][epoch]:.4f}, auc = {history.history['auc'][epoch]:.4f} | "
+          f"accuracy = {history.history['accuracy'][epoch]:.4f}, auc = {history.history['auc'][epoch]:.4f}, "
+          f"precision = {history.history['precision'][epoch]:.4f}, recall = {history.history['recall'][epoch]:.4f}, "
           f"val_loss = {history.history['val_loss'][epoch]:.4f}, "
-          f"val_accuracy = {history.history['val_accuracy'][epoch]:.4f}, "
-          f"val_auc = {history.history['val_auc'][epoch]:.4f}")
+          f"val_accuracy = {history.history['val_accuracy'][epoch]:.4f}, val_auc = {history.history['val_auc'][epoch]:.4f}, "
+          f"val_precision = {history.history['val_precision'][epoch]:.4f}, val_recall = {history.history['val_recall'][epoch]:.4f}, ")
+
 
 train_eval_final = model.evaluate(X_train, y_train, verbose=0)
 val_eval_final = model.evaluate(X_val, y_val, verbose=0)

@@ -7,6 +7,14 @@ NUM_SECONDS = 500  # общее число секунд
 SEGMENTS = [f"A{i}" for i in range(1, 11)]  # установки A1...A10
 START_TIME = datetime(2025, 3, 15, 11, 0, 0)
 
+seed = 42
+random.seed(seed)
+
+# Выбор выходного файла
+OUTPUT_FILE = f"sensor_test_data.csv"
+# OUTPUT_FILE = f"sensor_val_data.csv"
+# OUTPUT_FILE = f"sensor_train_data.csv"
+
 # Задаём базовые (начальные) значения для каждого сегмента
 segment_params = {}
 for segment in SEGMENTS:
@@ -39,12 +47,8 @@ for segment in SEGMENTS:
 failure_status = {segment: {"active": False, "remaining": 0, "mode": None} for segment in SEGMENTS}
 
 # Вероятность запуска предписания для выхода из строя для каждой установки в каждую секунду
-failure_trigger_probability = 0.005
+failure_trigger_probability = 0.0005
 
-# Выбор выходного файла
-OUTPUT_FILE = f"sensor_test_data.csv"
-# OUTPUT_FILE = f"sensor_val_data.csv"
-# OUTPUT_FILE = f"sensor_train_data.csv"
 
 with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
     fieldnames = ['timestamp', 'segment_id', 'pressure', 'temperature', 'vibration', 'flow_rate']
@@ -68,6 +72,12 @@ with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
                     failure_status[segment]["active"] = False
                     failure_status[segment]["mode"] = None
 
+                # Ограничиваем значения, чтобы они не стали отрицательными
+                current_pressure = max(current_pressure, 0)
+                current_temperature = max(current_temperature, 0)
+                current_vibration = max(current_vibration, 0)
+                current_flow_rate = max(current_flow_rate, 0)
+
                 segment_params[segment]['pressure'] = current_pressure
                 segment_params[segment]['temperature'] = current_temperature
                 segment_params[segment]['vibration'] = current_vibration
@@ -81,6 +91,16 @@ with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
 
                 if random.random() < failure_trigger_probability:
                     failure_duration = random.randint(5, 10)
+
+                    # sign_pressure = random.choice([1, -1])
+                    # failure_pressure_step = sign_pressure * random.uniform(0.4, 0.6)
+                    # sign_flow_rate = random.choice([1, -1])
+                    # failure_flow_rate_step = sign_flow_rate * random.uniform(3.0, 8.0)
+                    # sign_temperature = random.choice([1, -1])
+                    # failure_temperature_step = sign_temperature * random.uniform(0.1, 0.3)
+                    # sign_vibration = random.choice([1, -1])
+                    # failure_vibration_step = sign_vibration * random.uniform(0.001, 0.003)
+
                     failure_pressure_step = random.uniform(0.4, 0.6)
                     failure_flow_rate_step = -random.uniform(3.0, 8.0)
                     failure_temperature_step = random.uniform(0.1, 0.3)
@@ -100,11 +120,22 @@ with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
                     current_flow_rate = segment_params[segment]['flow_rate'] + failure_status[segment]["mode"]["flow_rate_step"]
                     failure_status[segment]["remaining"] -= 1
 
+                    # Ограничиваем значения, чтобы они не стали отрицательными
+                    current_pressure = max(current_pressure, 0)
+                    current_temperature = max(current_temperature, 0)
+                    current_vibration = max(current_vibration, 0)
+                    current_flow_rate = max(current_flow_rate, 0)
+
                     segment_params[segment]['pressure'] = current_pressure
                     segment_params[segment]['temperature'] = current_temperature
                     segment_params[segment]['vibration'] = current_vibration
                     segment_params[segment]['flow_rate'] = current_flow_rate
                 else:
+                    current_pressure = max(current_pressure, 0)
+                    current_temperature = max(current_temperature, 0)
+                    current_vibration = max(current_vibration, 0)
+                    current_flow_rate = max(current_flow_rate, 0)
+
                     segment_params[segment]['pressure'] = current_pressure
                     segment_params[segment]['temperature'] = current_temperature
                     segment_params[segment]['vibration'] = current_vibration
