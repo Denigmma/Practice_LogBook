@@ -1,11 +1,13 @@
 import numpy as np
 import tensorflow as tf
+import os
 
 
 def load_model(model_path: str):
     """
     Загружает модель из указанного пути.
     """
+    model_path = os.path.abspath(model_path)
     model = tf.keras.models.load_model(model_path, compile=False)
     return model
 

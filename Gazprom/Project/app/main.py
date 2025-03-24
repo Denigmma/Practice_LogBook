@@ -6,8 +6,11 @@ from pydantic import BaseModel
 import os
 
 # Путь к сохранённой модели (предполагается, что модель сохранена в формате HDF5)
-MODEL_PATH = "../model/saved_models/gru_model.h5"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, '../model/saved_models/gru_model.h5')
+html_dashboard = os.path.join(BASE_DIR, 'dashboard.html')
 model = load_model(MODEL_PATH)
+
 
 app = FastAPI()
 
@@ -57,7 +60,7 @@ def get_predictions():
 # Эндпоинт, отдающий HTML-страницу дашборда
 @app.get("/dashboard", response_class=HTMLResponse)
 def dashboard():
-    dashboard_file = "dashboard.html"
+    dashboard_file = html_dashboard
     if not os.path.exists(dashboard_file):
         raise HTTPException(status_code=404, detail="Dashboard file not found")
     with open(dashboard_file, "r", encoding="utf-8") as f:

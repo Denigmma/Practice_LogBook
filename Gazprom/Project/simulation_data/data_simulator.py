@@ -1,10 +1,12 @@
 import time
 import pandas as pd
 import requests
+import os
 
 PREDICT_URL = "http://127.0.0.1:8000/predict"
 UPDATE_URL = "http://127.0.0.1:8000/update"
-CSV_FILE = "../data/sensor_test_data.csv"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_FILE = os.path.join(BASE_DIR, "../data/sensor_test_data.csv")
 WINDOW_SIZE = 20
 
 def simulate_all_sensors(csv_file: str, window_size: int):
