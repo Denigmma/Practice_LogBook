@@ -1,4 +1,4 @@
-from inference import load_model, predict, preprocess_input
+from .inference import load_model, predict, preprocess_input
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, JSONResponse
@@ -68,4 +68,4 @@ def dashboard():
     return HTMLResponse(content=html_content, status_code=200)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
