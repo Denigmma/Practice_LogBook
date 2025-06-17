@@ -60,4 +60,3 @@ df = lambda x: 3*x**2
 # df = lambda x: 3*a*x**2+2*b*x+c
 
 print(sol(f,df))
-
