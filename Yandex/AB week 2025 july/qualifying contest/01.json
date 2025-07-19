@@ -1,0 +1,22 @@
+{
+	"serpset": [
+		{
+			"query": "okna",
+		 	"results": [
+				{"position": 0, "url": "okna-msk.ru", "relevance": 0.95, "cost": 77}, 
+				{"position": 1, "url": "okna-pvh.ru", "relevance": 0.95, "cost": 70}, 
+				{"position": 2, "url": "ne-okna.ru", "relevance": 0.3, "cost": 100}, 
+				{"position": 3, "url": "best-okna.ru", "relevance": 0.1, "cost": 0}
+		]}, 
+		{
+			"query": "lego",
+			"results": [
+				{"position": 0, "url": "lego.ru", "relevance": 0.95, "cost": 15}, 
+				{"position": 1, "url": "lego-mir.ru", "relevance": 0.7, "cost": 30}, 
+				{"position": 2, "url": "disney.ru", "relevance": 0.3, "cost": 100}]
+		}], 
+	"new_documents": [
+		{"query": "weather", "url": "yandex.ru/pogoda", "relevance": 1, "cost": 0}, 
+		{"query": "okna", "url": "yandex.ru/okna", "relevance": 1, "cost": 100}, 
+		{"query": "lego", "url": "yandex.ru/lego", "relevance": 0.4, "cost": 10}
+	]}
