@@ -18,10 +18,10 @@ P. Дельта-метод
 n+m−2 (количество уников теста + количество уников контроля - 2). Оценивайте дисперсию, используя Дельта-метод.
 '''
 
-
+import numpy as np
 import pandas as pd
 import os
-from scipy.stats import t
+from scipy import stats
 
 script_dir = os.path.dirname(__file__)
 data_path = os.path.join(script_dir, '..', 'O. t-test', 'synthetic_gmv_data_1.2.csv')
@@ -29,28 +29,66 @@ data_path = os.path.join(script_dir, '..', 'O. t-test', 'synthetic_gmv_data_1.2.
 df = pd.read_csv(data_path)
 df_user = df.groupby(['user_id', 'group_name'], as_index=False)['gmv'].sum()
 
-control = df_user.loc[df_user['group_name'] == 'control', 'gmv']
-test = df_user.loc[df_user['group_name'] == 'test',    'gmv']
 
-n_c = control.size
-n_t = test.size
-
-mean_c = control.mean()
-mean_t = test.mean()
-
-var_c = control.var(ddof=1)
-var_t = test.var(ddof=1)
-
-# оценка стандартной ошибки разницы средних по Δ‑методу
-se_diff = (var_t / n_t + var_c / n_c) ** 0.5
-
-t_stat = (mean_t - mean_c) / se_diff
-dfree  = n_t + n_c - 2
-
-# двусторонний p‑value по Стьюденту
-p_value = 2 * t.sf(abs(t_stat), dfree)
-
-print(f"{t_stat:.3f} {p_value:.3f}")
+def safe_divide(x, y):
+    try:
+        return x / y
+    except ZeroDivisionError:
+        return np.nan
 
 
-# answer: 2.360 0.018
+def delta_var(numerator, denominator):
+    """
+    Функция для расчета дисперсии дельта-методом, numerator - вектор числитель, denominator - вектор знаменатель
+    """
+    x = numerator
+    y = denominator
+    n = len(x)
+    mu_x = np.mean(x)
+    mu_y = np.mean(y)
+    var_x = np.var(x, ddof=1)
+    var_y = np.var(y, ddof=1)
+    cov_xy = np.cov(x, y, ddof=1)[0][1]
+    delta_var = safe_divide(
+        safe_divide(var_x, mu_y ** 2) - 2 * cov_xy * safe_divide(mu_x, mu_y ** 3) + var_y * safe_divide(mu_x ** 2,
+                                                                                                        mu_y ** 4), n)
+    return delta_var
+
+
+def esttimate_tt_and_p(x_num, x_denom, y_num, y_denom):
+    n = len(x_num)
+    m = len(y_num)
+    test_var = delta_var(x_num, x_denom)
+    control_var = delta_var(y_num, y_denom)
+    sigma = np.sqrt(test_var + control_var)
+    delta_estimator = safe_divide(np.mean(x_num), np.mean(x_denom)) - safe_divide(np.mean(y_num), np.mean(y_denom))
+    tt = safe_divide(delta_estimator, sigma)
+    pvalue = 2 * stats.t.sf(np.abs(tt), n + m - 2)
+
+    return tt, pvalue
+
+
+df_control = df[df['group_name'] == 'control'].drop(columns='group_name')
+df_test = df[df['group_name'] == 'test'].drop(columns='group_name')
+
+df_control = df_control.groupby('user_id').agg(
+    total_gmv=('gmv', 'sum'),
+    count=('gmv', 'size')
+).reset_index()
+
+df_test = df_test.groupby('user_id').agg(
+    total_gmv=('gmv', 'sum'),
+    count=('gmv', 'size')
+).reset_index()
+
+x_num = df_control['total_gmv']
+x_denom = df_control['count']
+y_num = df_test['total_gmv']
+y_denom = df_test['count']
+
+tt, pvalue = esttimate_tt_and_p(x_num, x_denom, y_num, y_denom)
+tt.item(), pvalue.item()
+
+print(f"{tt:.3f} {pvalue:.3f}")
+
+# answer -2.344 0.019

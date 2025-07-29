@@ -26,7 +26,7 @@ df = pd.read_csv(data_path)
 df_user = df.groupby(['user_id', 'group_name'], as_index=False)['gmv'].sum()
 
 control = df_user.loc[df_user['group_name'] == 'control', 'gmv']
-test    = df_user.loc[df_user['group_name'] == 'test',    'gmv']
+test = df_user.loc[df_user['group_name'] == 'test', 'gmv']
 
 t_stat, p_value = ttest_ind(test, control, equal_var=False)
 print(f"{t_stat:.3f} {p_value:.3f}")
