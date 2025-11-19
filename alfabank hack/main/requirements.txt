@@ -1,0 +1,7 @@
+sentence-transformers
+transformers
+rank-bm25
+chromadb
+numpy
+pandas
+torch
